@@ -24,7 +24,9 @@ export default function RootLayout({
     <html lang="ko">
       <body className={pretendard.className}>
         <Header />
-        {children}
+        <div className="w-screen max-h-screen min-[cal(100vh-70px)] pt-12">
+          {children}
+        </div>
       </body>
     </html>
   );
