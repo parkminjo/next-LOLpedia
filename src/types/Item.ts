@@ -1,4 +1,4 @@
-export type Item = {
+export interface Item {
   name: string;
   description: string;
   colloq: string;
@@ -32,4 +32,4 @@ export type Item = {
   stats: {
     FlatMovementSpeedMod: number;
   };
-};
+}

@@ -1,4 +1,4 @@
-export type Champion = {
+export interface Champion {
   version: string;
   id: string;
   key: string;
@@ -45,4 +45,4 @@ export type Champion = {
     attackspeedperlevel: number;
     attackspeed: number;
   };
-};
+}
