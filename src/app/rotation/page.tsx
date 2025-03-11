@@ -24,7 +24,7 @@ const Rotation = () => {
   return (
     <div className="container mx-auto mt-10 flex flex-col gap-8">
       <div className="flex flex-col gap-2">
-        <Text variant="h1">로테이션</Text>
+        <Text variant="h1">무료 챔피언 목록</Text>
         <Text variant="h3" className="text-gray-500">
           오늘 LOL에서 무료로 이용할 수 있는 챔피언을 확인해보세요.
         </Text>
