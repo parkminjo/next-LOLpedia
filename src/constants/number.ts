@@ -1,0 +1,1 @@
+export const REVALIDATE_TIME_24_HOURS = 86400;
