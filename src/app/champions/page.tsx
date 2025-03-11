@@ -1,7 +1,7 @@
 import ChampionItem from '@/components/champions/ChampionItem';
 import { REVALIDATE_TIME_24_HOURS } from '@/constants/number';
 import { URL } from '@/constants/url';
-import { Champion } from '@/types/Champion';
+import Champion from '@/types/Champion';
 
 const Champions = async () => {
   const response = await fetch(URL.CHAMPIONS_DATA_URL, {
