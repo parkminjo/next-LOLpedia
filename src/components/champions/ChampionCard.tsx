@@ -1,7 +1,7 @@
-import Image from 'next/image';
-import { Text } from '../ui/Text';
 import { URL } from '@/constants/url';
 import Champion from '@/types/Champion';
+import Image from 'next/image';
+import { Text } from '../ui/Text';
 
 interface ChampionCardProps {
   champion: Champion;
