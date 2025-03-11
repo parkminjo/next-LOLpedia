@@ -1,4 +1,4 @@
-import SkeletonUI from '@/components/skeletons/SkeletonUI';
+import SkeletonUI from '@/components/ui/SkeletonUI';
 
 const Loading = () => {
   return (
