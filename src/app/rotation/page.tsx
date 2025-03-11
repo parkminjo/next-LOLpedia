@@ -3,8 +3,7 @@ import ChampionList from '@/components/champions/ChampionList';
 import { Text } from '@/components/ui/Text';
 import Champion from '@/types/Champion';
 import { fetchChampionList, fetchChampionsRotation } from '@/utils/serverApi';
-import { Suspense, useEffect, useState } from 'react';
-import Loading from './loading';
+import { useEffect, useState } from 'react';
 
 const Rotation = () => {
   const [championRotationList, setChampionRotationList] = useState<Champion[]>(
@@ -30,9 +29,7 @@ const Rotation = () => {
           오늘 LOL에서 무료로 이용할 수 있는 챔피언을 확인해보세요.
         </Text>
       </div>
-      <Suspense fallback={<Loading />}>
-        <ChampionList championList={championRotationList} />
-      </Suspense>
+      <ChampionList championList={championRotationList} />
     </div>
   );
 };
