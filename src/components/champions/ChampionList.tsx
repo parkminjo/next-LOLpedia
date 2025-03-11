@@ -1,7 +1,6 @@
-import Loading from '@/app/loading';
+import Loading from '@/app/rotation/loading';
 import { Suspense } from 'react';
 import ChampionCard from './ChampionCard';
-import Champion from '@/types/Champion';
 import { ChampionListProps } from '@/types/props';
 
 const ChampionList = ({ championList }: ChampionListProps) => {
