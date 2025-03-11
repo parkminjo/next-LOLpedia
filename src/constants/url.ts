@@ -1,7 +1,7 @@
 export const URL: Record<string, string> = {
   LOL: 'https://download.kr.riotgames.com/league',
   CHAMPIONS_DATA_URL:
-    'https://ddragon.leagueoflegends.com/cdn/15.5.1/data/ko_KR',
+    'https://ddragon.leagueoflegends.com/cdn/15.5.1/data/ko_KR/champion',
   CHAMPION_LOADING_IMG_URL:
     'https://ddragon.leagueoflegends.com/cdn/img/champion/loading',
   CHAMPION_IMG_URL:

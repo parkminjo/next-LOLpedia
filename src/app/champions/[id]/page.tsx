@@ -8,7 +8,6 @@ import Image from 'next/image';
 const ChampionDetail = async ({ params }: ChampionDetailProps) => {
   const championId = params.id;
   const championData: Champion = await fetchChampionData(championId);
-  console.log(championData);
 
   return (
     <div className="relative">

@@ -1,7 +1,7 @@
-import Loading from '@/app/rotation/loading';
+import Loading from '@/app/champions/loading';
+import { ChampionListProps } from '@/types/props';
 import { Suspense } from 'react';
 import ChampionCard from './ChampionCard';
-import { ChampionListProps } from '@/types/props';
 
 const ChampionList = ({ championList }: ChampionListProps) => {
   return (

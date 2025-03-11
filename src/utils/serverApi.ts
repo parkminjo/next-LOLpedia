@@ -10,7 +10,7 @@ import Item from '@/types/Item';
  */
 export const fetchChampionList = async (): Promise<Champion[]> => {
   try {
-    const response = await fetch(`${URL.CHAMPIONS_DATA_URL}/champion.json`, {
+    const response = await fetch(`${URL.CHAMPIONS_DATA_URL}.json`, {
       next: {
         revalidate: REVALIDATE_TIME_24_HOURS,
       },
@@ -30,13 +30,13 @@ export const fetchChampionList = async (): Promise<Champion[]> => {
 export const fetchChampionData = async (championId: string) => {
   try {
     const response = await fetch(
-      `${URL.CHAMPIONS_DATA_URL}/champion/${championId}.json`,
+      `${URL.CHAMPIONS_DATA_URL}/${championId}.json`,
       {
         cache: 'no-store',
       }
     );
     const { data: championData } = await response.json();
-    return championData[championId] || {};
+    return championData[championId];
   } catch (error) {
     console.error(error);
   }

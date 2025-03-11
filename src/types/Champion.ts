@@ -46,7 +46,7 @@ export default interface Champion {
     description: string;
     image: Image;
   };
-  recommended?: any;
+  recommended?: object[];
 }
 
 interface Image {
