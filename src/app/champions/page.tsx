@@ -1,4 +1,4 @@
-import ChampionItem from '@/components/champions/ChampionItem';
+import ChampionCard from '@/components/champions/ChampionCard';
 import { Text } from '@/components/ui/Text';
 import { REVALIDATE_TIME_24_HOURS } from '@/constants/number';
 import { URL } from '@/constants/url';
@@ -23,7 +23,7 @@ const Champions = async () => {
       </div>
       <div className="grid grid-cols-4 gap-8">
         {championList.map((champion) => {
-          return <ChampionItem key={champion.key} champion={champion} />;
+          return <ChampionCard key={champion.key} champion={champion} />;
         })}
       </div>
     </div>

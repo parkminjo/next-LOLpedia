@@ -7,7 +7,7 @@ interface ChampionItemProps {
   champion: Champion;
 }
 
-const ChampionItem = ({ champion }: ChampionItemProps) => {
+const ChampionCard = ({ champion }: ChampionItemProps) => {
   return (
     <div className="rounded-xl border-2 border-solid p-4 flex flex-col gap-3">
       <div>
@@ -25,4 +25,4 @@ const ChampionItem = ({ champion }: ChampionItemProps) => {
   );
 };
 
-export default ChampionItem;
+export default ChampionCard;
