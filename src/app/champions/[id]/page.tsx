@@ -16,17 +16,18 @@ const ChampionDetail = async ({ params }: ChampionDetailProps) => {
         width={500}
         height={500}
         alt={championData.id}
+        priority
         className="relative w-screen h-screen object-cover"
       />
       <div className="absolute inset-0 bg-black/50"></div>
       <div className="absolute top-[40%] left-20 flex flex-col gap-4">
-        <Text className="text-[#D6B771] text-5xl font-bold">
+        <Text variant="h1" className="text-[#D6B771]">
           {championData.name}
         </Text>
         <Text variant="h3" className="text-gray-200">
           {championData.title}
         </Text>
-        <Text variant="h3" className="max-w-[600px] text-gray-200">
+        <Text variant="h4" className="max-w-[600px] text-gray-200">
           {championData.lore}
         </Text>
       </div>

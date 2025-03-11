@@ -10,7 +10,7 @@ const ChampionCard = ({ champion }: ChampionCardProps) => {
     <Link href={`${PATH.CHAMPIONS}/${champion.id}`}>
       <div className="rounded-xl border-2 border-solid p-4 flex flex-col gap-3">
         <div>
-          <Text variant="h2">{champion.name}</Text>
+          <Text variant="h3">{champion.name}</Text>
           <Text className="text-gray-500">{champion.title}</Text>
         </div>
         <Image
