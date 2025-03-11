@@ -1,6 +1,4 @@
-import Loading from '@/app/champions/loading';
 import { ChampionListProps } from '@/types/props';
-import { Suspense } from 'react';
 import ChampionCard from './ChampionCard';
 
 const ChampionList = ({ championList }: ChampionListProps) => {
