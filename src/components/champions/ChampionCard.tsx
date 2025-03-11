@@ -3,11 +3,11 @@ import { Text } from '../ui/Text';
 import { URL } from '@/constants/url';
 import Champion from '@/types/Champion';
 
-interface ChampionItemProps {
+interface ChampionCardProps {
   champion: Champion;
 }
 
-const ChampionCard = ({ champion }: ChampionItemProps) => {
+const ChampionCard = ({ champion }: ChampionCardProps) => {
   return (
     <div className="rounded-xl border-2 border-solid p-4 flex flex-col gap-3">
       <div>
