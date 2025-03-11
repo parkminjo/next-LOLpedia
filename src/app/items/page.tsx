@@ -6,7 +6,7 @@ import { Suspense } from 'react';
 import Loading from './loading';
 
 const Items = async () => {
-  const itemList: Item[] = (await fetchItems()) as Item[];
+  const itemList: Item[] = await fetchItems();
 
   return (
     <div className="container mx-auto mt-10 flex flex-col gap-8">

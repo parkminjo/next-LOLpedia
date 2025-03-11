@@ -6,7 +6,7 @@ import { fetchChampions } from '../api/fetchData';
 import Loading from '../items/loading';
 
 const Champions = async () => {
-  const championList: Champion[] = (await fetchChampions()) as Champion[];
+  const championList: Champion[] = await fetchChampions();
 
   return (
     <div className="container mx-auto mt-10 flex flex-col gap-8">
