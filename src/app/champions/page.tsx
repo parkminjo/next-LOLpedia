@@ -3,15 +3,10 @@ import { Text } from '@/components/ui/Text';
 import { REVALIDATE_TIME_24_HOURS } from '@/constants/number';
 import { URL } from '@/constants/url';
 import Champion from '@/types/Champion';
+import { fetchChampions } from '../api/fetchData';
 
 const Champions = async () => {
-  const response = await fetch(URL.CHAMPIONS_DATA_URL, {
-    next: {
-      revalidate: REVALIDATE_TIME_24_HOURS,
-    },
-  });
-  const { data } = await response.json();
-  const championList: Champion[] = Object.values(data);
+  const championList: Champion[] = (await fetchChampions()) as Champion[];
 
   return (
     <div className="container mx-auto mt-10 flex flex-col gap-8">

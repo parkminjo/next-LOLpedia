@@ -1,14 +1,10 @@
 import ItemCard from '@/components/items/ItemCard';
 import { Text } from '@/components/ui/Text';
-import { URL } from '@/constants/url';
 import Item from '@/types/Item';
+import { fetchItems } from '../api/fetchData';
 
 const Items = async () => {
-  const response = await fetch(URL.ITEMS_DATA_URL, {
-    cache: 'force-cache',
-  });
-  const { data } = await response.json();
-  const itemList: Item[] = Object.values(data);
+  const itemList: Item[] = (await fetchItems()) as Item[];
 
   return (
     <div className="container mx-auto mt-10 flex flex-col gap-8">
