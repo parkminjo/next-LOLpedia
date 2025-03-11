@@ -14,28 +14,7 @@ export default interface Champion {
   image: Image;
   tags: string[];
   partype: string;
-  stats: {
-    hp: number;
-    hpperlevel: number;
-    mp: number;
-    mpperlevel: number;
-    movespeed: number;
-    armor: number;
-    armorperlevel: number;
-    spellblock: number;
-    spellblockperlevel: number;
-    attackrange: number;
-    hpregen: number;
-    hpregenperlevel: number;
-    mpregen: number;
-    mpregenperlevel: number;
-    crit: number;
-    critperlevel: number;
-    attackdamage: number;
-    attackdamageperlevel: number;
-    attackspeedperlevel: number;
-    attackspeed: number;
-  };
+  stats: Record<string, number>;
   skins?: Skin[];
   lore?: string;
   allytips?: string[];
@@ -47,16 +26,6 @@ export default interface Champion {
     image: Image;
   };
   recommended?: object[];
-}
-
-interface Image {
-  full: string;
-  sprite: string;
-  group: string;
-  x: number;
-  y: number;
-  w: number;
-  h: number;
 }
 
 interface Skin {
@@ -77,14 +46,24 @@ interface Spell {
   cooldownBurn: string;
   cost: number[];
   costBurn: string;
-  datavalues: Record<string, any>;
+  datavalues: Record<string, null>;
   effect: (number[] | null)[];
   effectBurn: (string | null)[];
-  vars: any[];
+  vars: [];
   costType: string;
   maxammo: string;
   range: number[];
   rangeBurn: string;
   image: Image;
   resource: string;
+}
+
+interface Image {
+  full: string;
+  sprite: string;
+  group: string;
+  x: number;
+  y: number;
+  w: number;
+  h: number;
 }
