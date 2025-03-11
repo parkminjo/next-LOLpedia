@@ -1,4 +1,4 @@
-export interface Item {
+export default interface Item {
   name: string;
   description: string;
   colloq: string;

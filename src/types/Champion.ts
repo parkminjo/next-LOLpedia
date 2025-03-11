@@ -1,4 +1,4 @@
-export interface Champion {
+export default interface Champion {
   version: string;
   id: string;
   key: string;
