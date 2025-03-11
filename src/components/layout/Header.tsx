@@ -1,7 +1,7 @@
 import { PATH } from '@/constants/RouterPath';
 import Link from 'next/link';
 import clsx from 'clsx';
-import Logo from '../../public/assets/lolLogo.png';
+import Logo from '/public/assets/lolLogo.png';
 import Image from 'next/image';
 
 const Header = () => {
@@ -26,7 +26,7 @@ const Header = () => {
               )}
             >
               {nav.href === PATH.HOME ? (
-                <Image src={Logo} width={40} alt={nav.name} />
+                <Image src={Logo} width={40} alt={nav.name} priority />
               ) : (
                 nav.name
               )}
