@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import Background from '/public/assets/bg.jpg';
-import LOLText from '/public/assets/lol.webp';
+import Background from '/public/images/bg.jpg';
+import LOLText from '/public/images/lol.webp';
 import Link from 'next/link';
 import { URL } from '@/constants/url';
 

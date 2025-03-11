@@ -1,8 +1,8 @@
-import { PATH } from '@/constants/RouterPath';
+import { PATH } from '@/constants/routerPath';
 import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
-import Logo from '/public/assets/lolLogo.png';
+import Logo from '/public/images/lolLogo.png';
 
 const Header = () => {
   const navList = [
