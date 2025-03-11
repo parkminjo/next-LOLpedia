@@ -1,6 +1,26 @@
+'use client';
+import ChampionList from '@/components/champions/ChampionList';
 import { Text } from '@/components/ui/Text';
+import Champion from '@/types/Champion';
+import { useEffect, useState } from 'react';
+import { fetchChampions, fetchChampionsRotation } from '../api/fetchData';
 
 const Rotation = () => {
+  const [championRotationList, setChampionRotationList] = useState<Champion[]>(
+    []
+  );
+
+  useEffect(() => {
+    fetchChampionsRotation().then((freeChampionIds) => {
+      fetchChampions().then((championList) => {
+        const freeChampionList = championList?.filter((champion) =>
+          freeChampionIds.includes(Number(champion.key))
+        );
+        setChampionRotationList(freeChampionList);
+      });
+    });
+  }, []);
+
   return (
     <div className="container mx-auto mt-10 flex flex-col gap-8">
       <div className="flex flex-col gap-2">
@@ -9,7 +29,7 @@ const Rotation = () => {
           오늘 LOL에서 무료로 이용할 수 있는 챔피언을 확인해보세요.
         </Text>
       </div>
-      <div className="grid grid-cols-4 gap-8"></div>
+      <ChampionList championList={championRotationList} />
     </div>
   );
 };
