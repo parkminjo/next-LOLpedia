@@ -1,7 +1,5 @@
 import ChampionCard from '@/components/champions/ChampionCard';
 import { Text } from '@/components/ui/Text';
-import { REVALIDATE_TIME_24_HOURS } from '@/constants/number';
-import { URL } from '@/constants/url';
 import Champion from '@/types/Champion';
 import { fetchChampions } from '../api/fetchData';
 
