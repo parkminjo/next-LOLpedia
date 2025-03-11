@@ -10,7 +10,7 @@ interface ItemCardProps {
 const ItemCard = ({ item }: ItemCardProps) => {
   return (
     <div className="rounded-xl border-2 border-solid p-4 flex flex-col gap-3">
-      <Text variant="h3" className="font-semibold">
+      <Text variant="h4" className="font-semibold">
         {item.name}
       </Text>
       <Image
