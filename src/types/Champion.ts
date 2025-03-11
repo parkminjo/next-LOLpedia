@@ -1,5 +1,5 @@
 export default interface Champion {
-  version: string;
+  version?: string;
   id: string;
   key: string;
   name: string;
@@ -11,16 +11,7 @@ export default interface Champion {
     magic: number;
     difficulty: number;
   };
-  image: {
-    full: string;
-    sprite: string;
-    group: string;
-    x: number;
-    y: number;
-    z: number;
-    w: number;
-    h: number;
-  };
+  image: Image;
   tags: string[];
   partype: string;
   stats: {
@@ -45,4 +36,55 @@ export default interface Champion {
     attackspeedperlevel: number;
     attackspeed: number;
   };
+  skins?: Skin[];
+  lore?: string;
+  allytips?: string[];
+  enemytips?: string[];
+  spell?: Spell[];
+  passive?: {
+    name: string;
+    description: string;
+    image: Image;
+  };
+  recommended?: any;
+}
+
+interface Image {
+  full: string;
+  sprite: string;
+  group: string;
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+}
+
+interface Skin {
+  id: string;
+  num: number;
+  name: string;
+  chromas: boolean;
+}
+
+interface Spell {
+  id: string;
+  name: string;
+  description: string;
+  tooltip: string;
+  leveltip: Record<string, string[]>;
+  maxrank: number;
+  cooldown: number[];
+  cooldownBurn: string;
+  cost: number[];
+  costBurn: string;
+  datavalues: Record<string, any>;
+  effect: (number[] | null)[];
+  effectBurn: (string | null)[];
+  vars: any[];
+  costType: string;
+  maxammo: string;
+  range: number[];
+  rangeBurn: string;
+  image: Image;
+  resource: string;
 }
