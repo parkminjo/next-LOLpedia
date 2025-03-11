@@ -1,6 +1,7 @@
 import { REVALIDATE_TIME_24_HOURS } from '@/constants/number';
 import { URL } from '@/constants/url';
 import Champion from '@/types/Champion';
+import ChampionRotation from '@/types/ChampionRotation';
 import Item from '@/types/Item';
 
 /**
@@ -26,9 +27,7 @@ export const fetchChampionList = async (): Promise<Champion[]> => {
  * 특정 LOL 챔피언 데이터 가져오는 함수
  * @returns championData - 해당 챔피언 정보
  */
-export const fetchChampionData = async (
-  championId: string
-): Promise<object> => {
+export const fetchChampionData = async (championId: string) => {
   try {
     const response = await fetch(
       `${URL.CHAMPIONS_DATA_URL}/champion/${championId}.json`,
@@ -37,10 +36,9 @@ export const fetchChampionData = async (
       }
     );
     const { data: championData } = await response.json();
-    return championData;
+    return championData[championId] || {};
   } catch (error) {
     console.error(error);
-    return [];
   }
 };
 
@@ -68,7 +66,7 @@ export const fetchItemList = async (): Promise<Item[]> => {
 export const fetchChampionsRotation = async (): Promise<number[]> => {
   try {
     const response = await fetch(URL.CHAMPIONS_ROTATION_DATA_URL);
-    const { freeChampionIds } = await response.json();
+    const { freeChampionIds }: ChampionRotation = await response.json();
     return freeChampionIds;
   } catch (error) {
     console.error(error);
