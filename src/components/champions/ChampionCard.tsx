@@ -18,10 +18,10 @@ const ChampionCard = ({ champion }: ChampionCardProps) => {
           <Text className="text-gray-500">{champion.title}</Text>
         </div>
         <Image
-          src={`${URL.CHAMPION_IMG_URL}/${champion.id}_0.jpg`}
+          src={`${URL.CHAMPION_LOADING_IMG_URL}/${champion.id}_0.jpg`}
           width={50}
           height={50}
-          alt={champion.name}
+          alt={champion.id}
           className="w-screen max-h-[400px] object-cover"
         />
       </div>
