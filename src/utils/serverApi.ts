@@ -7,9 +7,9 @@ import Item from '@/types/Item';
  * LOL 챔피언 데이터 가져오는 함수
  * @returns Object.values(data) - 챔피언 리스트
  */
-export const fetchChampions = async (): Promise<Champion[]> => {
+export const fetchChampionList = async (): Promise<Champion[]> => {
   try {
-    const response = await fetch(URL.CHAMPIONS_DATA_URL, {
+    const response = await fetch(`${URL.CHAMPIONS_DATA_URL}/champion.json`, {
       next: {
         revalidate: REVALIDATE_TIME_24_HOURS,
       },
@@ -23,10 +23,32 @@ export const fetchChampions = async (): Promise<Champion[]> => {
 };
 
 /**
+ * 특정 LOL 챔피언 데이터 가져오는 함수
+ * @returns championData - 해당 챔피언 정보
+ */
+export const fetchChampionData = async (
+  championId: string
+): Promise<object> => {
+  try {
+    const response = await fetch(
+      `${URL.CHAMPIONS_DATA_URL}/champion/${championId}.json`,
+      {
+        cache: 'no-store',
+      }
+    );
+    const { data: championData } = await response.json();
+    return championData;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+};
+
+/**
  * LOL 아이템 데이터 가져오는 함수
  * @returns Object.values(data) - 아이템 리스트
  */
-export const fetchItems = async (): Promise<Item[]> => {
+export const fetchItemList = async (): Promise<Item[]> => {
   try {
     const response = await fetch(URL.ITEMS_DATA_URL, {
       cache: 'force-cache',
