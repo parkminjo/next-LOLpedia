@@ -2,8 +2,8 @@
 import ChampionList from '@/components/champions/ChampionList';
 import { Text } from '@/components/ui/Text';
 import Champion from '@/types/Champion';
+import { fetchChampions, fetchChampionsRotation } from '@/utils/serverApi';
 import { useEffect, useState } from 'react';
-import { fetchChampions, fetchChampionsRotation } from '../api/fetchData';
 
 const Rotation = () => {
   const [championRotationList, setChampionRotationList] = useState<Champion[]>(

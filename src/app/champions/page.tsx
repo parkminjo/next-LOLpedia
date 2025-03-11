@@ -1,7 +1,7 @@
 import ChampionList from '@/components/champions/ChampionList';
 import { Text } from '@/components/ui/Text';
 import Champion from '@/types/Champion';
-import { fetchChampions } from '../api/fetchData';
+import { fetchChampions } from '@/utils/serverApi';
 
 const Champions = async () => {
   const championList: Champion[] = await fetchChampions();

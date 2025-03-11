@@ -1,7 +1,7 @@
 import ItemCard from '@/components/items/ItemCard';
 import { Text } from '@/components/ui/Text';
 import Item from '@/types/Item';
-import { fetchItems } from '../api/fetchData';
+import { fetchItems } from '@/utils/serverApi';
 import { Suspense } from 'react';
 import Loading from './loading';
 
