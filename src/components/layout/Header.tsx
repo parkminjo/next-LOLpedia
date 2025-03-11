@@ -1,29 +1,35 @@
 import { PATH } from '@/constants/RouterPath';
 import Link from 'next/link';
 import clsx from 'clsx';
+import Logo from '../../public/assets/lolLogo.png';
+import Image from 'next/image';
 
 const Header = () => {
   const navList = [
-    { href: PATH.HOME, name: '홈' },
+    { href: PATH.HOME, name: '로고' },
     { href: PATH.CHAMPIONS, name: '챔피언' },
     { href: PATH.ITEMS, name: '아이템' },
     { href: PATH.ROTATION, name: '로테이션' },
   ];
 
   return (
-    <nav className="w-screen h-[60px] bg-gray-900 text-white flex items-center px-8">
-      <div className="flex gap-3">
+    <nav className="w-screen h-[70px] bg-gray-900 text-white flex items-center px-8">
+      <div className="flex gap-3 items-center">
         {navList.map((nav) => {
           return (
             <Link
               key={nav.name}
               href={nav.href}
               className={clsx(
-                'rounded-lg px-3 py-1',
-                nav.name !== '홈' && 'hover:bg-gray-700'
+                'rounded-lg px-3 py-2 text-gray-300',
+                nav.href !== PATH.HOME && 'hover:bg-gray-700'
               )}
             >
-              {nav.name}
+              {nav.href === PATH.HOME ? (
+                <Image src={Logo} width={40} alt={nav.name} />
+              ) : (
+                nav.name
+              )}
             </Link>
           );
         })}
