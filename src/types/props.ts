@@ -12,3 +12,7 @@ export interface ChampionCardProps {
 export interface ChampionListProps {
   championList: Champion[];
 }
+
+export interface LoadingProps {
+  state: string;
+}

@@ -1,5 +1,7 @@
+import LoadingUI from '@/components/ui/LoadingUI';
+
 const Loading = () => {
-  return <div className="h-screen bg-gray-300 animate-pulse"></div>;
+  return <LoadingUI state="load" />;
 };
 
 export default Loading;
