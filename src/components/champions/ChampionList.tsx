@@ -2,10 +2,7 @@ import Loading from '@/app/loading';
 import { Suspense } from 'react';
 import ChampionCard from './ChampionCard';
 import Champion from '@/types/Champion';
-
-type ChampionListProps = {
-  championList: Champion[];
-};
+import { ChampionListProps } from '@/types/props';
 
 const ChampionList = ({ championList }: ChampionListProps) => {
   return (
