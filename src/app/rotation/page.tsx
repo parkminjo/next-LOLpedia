@@ -2,7 +2,7 @@
 import ChampionList from '@/components/champions/ChampionList';
 import { Text } from '@/components/ui/Text';
 import Champion from '@/types/Champion';
-import { fetchChampions, fetchChampionsRotation } from '@/utils/serverApi';
+import { fetchChampionList, fetchChampionsRotation } from '@/utils/serverApi';
 import { useEffect, useState } from 'react';
 
 const Rotation = () => {
@@ -12,7 +12,7 @@ const Rotation = () => {
 
   useEffect(() => {
     fetchChampionsRotation().then((freeChampionIds) => {
-      fetchChampions().then((championList) => {
+      fetchChampionList().then((championList) => {
         const freeChampionList = championList?.filter((champion) =>
           freeChampionIds.includes(Number(champion.key))
         );

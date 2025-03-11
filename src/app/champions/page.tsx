@@ -1,10 +1,10 @@
 import ChampionList from '@/components/champions/ChampionList';
 import { Text } from '@/components/ui/Text';
 import Champion from '@/types/Champion';
-import { fetchChampions } from '@/utils/serverApi';
+import { fetchChampionList } from '@/utils/serverApi';
 
 const Champions = async () => {
-  const championList: Champion[] = await fetchChampions();
+  const championList: Champion[] = await fetchChampionList();
 
   return (
     <div className="container mx-auto mt-10 flex flex-col gap-8">
