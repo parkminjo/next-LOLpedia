@@ -2,6 +2,8 @@ import ChampionList from '@/components/champions/ChampionList';
 import { Text } from '@/components/ui/Text';
 import Champion from '@/types/Champion';
 import { fetchChampionList } from '@/utils/serverApi';
+import Loading from './loading';
+import { Suspense } from 'react';
 
 const Champions = async () => {
   const championList: Champion[] = await fetchChampionList();
@@ -14,7 +16,9 @@ const Champions = async () => {
           LOL에서 제공하는 140여 명의 챔피언을 구경해보세요.
         </Text>
       </div>
-      <ChampionList championList={championList} />
+      <Suspense fallback={<Loading />}>
+        <ChampionList championList={championList} />
+      </Suspense>
     </div>
   );
 };

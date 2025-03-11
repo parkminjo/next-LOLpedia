@@ -18,6 +18,7 @@ const ChampionCard = ({ champion }: ChampionCardProps) => {
           width={50}
           height={50}
           alt={champion.id}
+          priority
           className="w-screen max-h-[400px] object-cover"
         />
       </div>
