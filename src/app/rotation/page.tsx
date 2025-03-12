@@ -1,25 +1,35 @@
 'use client';
+
 import ChampionList from '@/components/champions/ChampionList';
+import ChampionsLoading from '@/components/ui/ChampionsLoading';
 import { Text } from '@/components/ui/Text';
+import { QUERY_KEY } from '@/constants/queryKeys';
+import { useCustomQuery } from '@/hooks/useQuery';
 import Champion from '@/types/Champion';
 import { fetchChampionList, fetchChampionsRotation } from '@/utils/serverApi';
-import { useEffect, useState } from 'react';
 
 const Rotation = () => {
-  const [championRotationList, setChampionRotationList] = useState<Champion[]>(
-    []
+  const {
+    data: freeChampionIds,
+    isPending,
+    isError,
+  } = useCustomQuery(QUERY_KEY.FREE_CHAMPION_IDS, fetchChampionsRotation);
+  const { data: championList } = useCustomQuery(
+    QUERY_KEY.CHAMPION_LIST,
+    fetchChampionList
   );
 
-  useEffect(() => {
-    fetchChampionsRotation().then((freeChampionIds) => {
-      fetchChampionList().then((championList) => {
-        const freeChampionList = championList?.filter((champion) =>
-          freeChampionIds.includes(Number(champion.key))
-        );
-        setChampionRotationList(freeChampionList);
-      });
-    });
-  }, []);
+  const freeChampionList: Champion[] | undefined = championList?.filter(
+    (champion) => freeChampionIds?.includes(Number(champion.key))
+  );
+
+  if (isPending) {
+    return <ChampionsLoading />;
+  }
+
+  if (isError) {
+    return <div>에러가 발생했습니다</div>;
+  }
 
   return (
     <div className="container mx-auto mt-10 flex flex-col gap-8">
@@ -29,7 +39,7 @@ const Rotation = () => {
           오늘 LOL에서 무료로 이용할 수 있는 챔피언을 확인해보세요.
         </Text>
       </div>
-      <ChampionList championList={championRotationList} />
+      <ChampionList championList={freeChampionList} />
     </div>
   );
 };
