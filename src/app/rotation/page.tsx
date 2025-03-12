@@ -24,6 +24,7 @@ const Rotation = () => {
       freeChampionIds?.includes(Number(champion.key))
     ) || [];
 
+  /** UI */
   if (isPending) {
     return <ChampionsLoading />;
   }
