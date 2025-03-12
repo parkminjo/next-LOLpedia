@@ -1,4 +1,4 @@
-export const REVALIDATE_TIME_24_HOURS = 86400;
+export const REVALIDATE_TIME_24_HOURS = 60 * 60 * 24;
 
 export const STALE_TIME_1M = 60 * 1000;
 
