@@ -1,16 +1,13 @@
 import { Text } from '@/components/ui/Text';
 import { URL } from '@/constants/url';
+import Champion from '@/types/Champion';
 import { ChampionDetailProps } from '@/types/props';
 import { fetchChampionData } from '@/utils/serverApi';
 import Image from 'next/image';
 
 const ChampionDetail = async ({ params }: ChampionDetailProps) => {
   const championId = params.id;
-  const championData = await fetchChampionData(championId);
-
-  if (!championData) {
-    return <div>챔피언 정보를 불러올 수 없습니다</div>;
-  }
+  const championData: Champion = await fetchChampionData(championId);
 
   return (
     <div className="relative">

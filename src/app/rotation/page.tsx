@@ -19,9 +19,10 @@ const Rotation = () => {
     fetchChampionList
   );
 
-  const freeChampionList: Champion[] | undefined = championList?.filter(
-    (champion) => freeChampionIds?.includes(Number(champion.key))
-  );
+  const freeChampionList: Champion[] =
+    championList?.filter((champion) =>
+      freeChampionIds?.includes(Number(champion.key))
+    ) || [];
 
   if (isPending) {
     return <ChampionsLoading />;

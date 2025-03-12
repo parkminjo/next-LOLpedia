@@ -10,7 +10,7 @@ export interface ChampionCardProps {
 }
 
 export interface ChampionListProps {
-  championList: Champion[] | undefined;
+  championList: Champion[];
 }
 
 export interface LoadingProps {
