@@ -13,7 +13,7 @@ const Header = () => {
   ];
 
   return (
-    <nav className="w-screen h-[70px] bg-gray-900 text-white flex items-center px-8">
+    <nav className="fixed top-0 left-0 w-screen h-[70px] bg-gray-900 text-white flex items-center px-8 z-50">
       <div className="flex gap-3 items-center">
         {navList.map((nav) => {
           return (
