@@ -30,7 +30,7 @@ const ChampionDetail = async ({ params }: ChampionDetailProps) => {
       />
       <div className="absolute inset-0 bg-black/50"></div>
       <div className="absolute top-[40%] left-20 flex flex-col gap-4">
-        <Text variant="h1" className="text-[#D6B771]">
+        <Text variant="h1" className="text-gold">
           {championData.name}
         </Text>
         <Text variant="h3" className="text-gray-200">

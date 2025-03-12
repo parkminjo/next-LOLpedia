@@ -1,10 +1,14 @@
 'use client';
+
 import { RingLoader } from 'react-spinners';
 
 const ChampionDetailLoading = () => {
+  const SIZE = 300;
+  const COLOR = '#D6B771';
+
   return (
     <div className="flex h-screen items-center justify-center bg-gray-900">
-      {<RingLoader size={300} color="#D6B771" />}
+      {<RingLoader size={SIZE} color={COLOR} />}
     </div>
   );
 };

@@ -23,7 +23,7 @@ const Home = () => {
         href={URL.LOL}
         target="_blank"
         rel="noopener noreferrer"
-        className="absolute top-[80%] left-1/2 -translate-x-1/2 text-xl font-semibold rounded-lg bg-[#D6B771] px-6 py-4 hover:bg-[#a88e50]"
+        className="absolute top-[80%] left-1/2 -translate-x-1/2 text-xl font-semibold rounded-lg bg-gold px-6 py-4 hover:bg-hoverGold"
       >
         플레이하러 가기
       </Link>
