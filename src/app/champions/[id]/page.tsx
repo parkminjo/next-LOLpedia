@@ -21,7 +21,7 @@ const ChampionDetail = async ({ params }: ChampionDetailProps) => {
   return (
     <div className="relative">
       <Image
-        src={`${URL.CHAMPION_IMG_URL}/${championId}_0.jpg`}
+        src={`${URL.CHAMPION_IMG}/${championId}_0.jpg`}
         width={500}
         height={500}
         alt={championData.id}

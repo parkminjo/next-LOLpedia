@@ -14,7 +14,7 @@ const ItemCard = ({ item }: ItemCardProps) => {
         {item.name}
       </Text>
       <Image
-        src={`${URL.ITEMS_IMG_URL}/${item.image.full}`}
+        src={`${URL.ITEMS_IMG}/${item.image.full}`}
         width={50}
         height={50}
         alt={item.name}

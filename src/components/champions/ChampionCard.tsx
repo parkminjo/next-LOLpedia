@@ -14,7 +14,7 @@ const ChampionCard = ({ champion }: ChampionCardProps) => {
           <Text className="text-gray-500">{champion.title}</Text>
         </div>
         <Image
-          src={`${URL.CHAMPION_LOADING_IMG_URL}/${champion.id}_0.jpg`}
+          src={`${URL.CHAMPION_LOADING_IMG}/${champion.id}_0.jpg`}
           width={50}
           height={50}
           alt={champion.id}
