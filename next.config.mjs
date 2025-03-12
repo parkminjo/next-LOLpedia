@@ -11,7 +11,7 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'ddragon.leagueoflegends.com',
-        pathname: '/cdn/img/champion/splash/*', // 챔피언 스플래시 이미지
+        pathname: '/cdn/img/champion/splash/*',
       },
       {
         protocol: 'https',
