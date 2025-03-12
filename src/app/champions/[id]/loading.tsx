@@ -1,7 +1,7 @@
-import LoadingUI from '@/components/ui/LoadingUI';
+import ChampionDetailLoading from '@/components/ui/ChampionDetailLoading';
 
 const Loading = () => {
-  return <LoadingUI state="load" />;
+  return <ChampionDetailLoading />;
 };
 
 export default Loading;
