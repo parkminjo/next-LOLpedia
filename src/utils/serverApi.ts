@@ -27,7 +27,9 @@ export const fetchChampionList = async (): Promise<Champion[]> => {
  * 특정 LOL 챔피언 데이터 가져오는 함수
  * @returns championData - 해당 챔피언 정보
  */
-export const fetchChampionData = async (championId: string) => {
+export const fetchChampionData = async (
+  championId: string
+): Promise<Champion | undefined> => {
   try {
     const response = await fetch(
       `${URL.CHAMPIONS_DATA_URL}/${championId}.json`,
