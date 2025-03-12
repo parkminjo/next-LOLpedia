@@ -25,7 +25,7 @@ export default function RootLayout({
       <body className={pretendard.className}>
         <Providers>
           <Header />
-          <div className="w-screen pt-[70px] ">{children}</div>
+          <div className="w-screen pt-[70px]">{children}</div>
         </Providers>
       </body>
     </html>
