@@ -10,7 +10,7 @@ import Item from '@/types/Item';
  */
 export const fetchChampionList = async (): Promise<Champion[]> => {
   try {
-    const response = await fetch(`${URL.CHAMPIONS_DATA_URL}.json`, {
+    const response = await fetch(`${URL.CHAMPIONS_DATA}.json`, {
       next: {
         revalidate: REVALIDATE_TIME_24_HOURS,
       },
@@ -30,12 +30,9 @@ export const fetchChampionList = async (): Promise<Champion[]> => {
  */
 export const fetchChampionData = async (championId: string) => {
   try {
-    const response = await fetch(
-      `${URL.CHAMPIONS_DATA_URL}/${championId}.json`,
-      {
-        cache: 'no-store',
-      }
-    );
+    const response = await fetch(`${URL.CHAMPIONS_DATA}/${championId}.json`, {
+      cache: 'no-store',
+    });
     const { data: championData } = await response.json();
 
     return championData[championId];
@@ -50,7 +47,7 @@ export const fetchChampionData = async (championId: string) => {
  */
 export const fetchItemList = async (): Promise<Item[]> => {
   try {
-    const response = await fetch(URL.ITEMS_DATA_URL, {
+    const response = await fetch(URL.ITEMS_DATA, {
       cache: 'force-cache',
     });
     const { data } = await response.json();
@@ -67,22 +64,8 @@ export const fetchItemList = async (): Promise<Item[]> => {
  * @returns freeChampionIds - 무료 챔피언 아이디 리스트
  */
 export const fetchChampionsRotation = async (): Promise<number[]> => {
-  const apiKey = process.env.NEXT_PUBLIC_RIOT_API_KEY;
-  if (!apiKey) {
-    return [];
-  }
-
   try {
-    const response = await fetch(URL.CHAMPIONS_ROTATION_DATA_URL, {
-      headers: {
-        'User-Agent':
-          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36',
-        'Accept-Language': 'ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7',
-        'Accept-Charset': 'application/x-www-form-urlencoded; charset=UTF-8',
-        Origin: 'https://developer.riotgames.com',
-        'X-Riot-Token': apiKey,
-      },
-    });
+    const response = await fetch(URL.NEXT_SERVER_ROTATION);
     const { freeChampionIds }: ChampionRotation = await response.json();
 
     return freeChampionIds;
