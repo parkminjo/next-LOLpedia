@@ -30,7 +30,11 @@ const Rotation = () => {
   }
 
   if (isError) {
-    return <div>에러가 발생했습니다</div>;
+    return (
+      <div className="mt-10 flex justify-center items-center">
+        챔피언 로테이션 정보를 불러오는데 에러가 발생하였습니다
+      </div>
+    );
   }
 
   return (
