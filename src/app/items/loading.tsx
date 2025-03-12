@@ -9,7 +9,7 @@ const Loading = () => {
           return (
             <div
               key={i}
-              className="rounded-xl border-2 border-solid p-4 flex flex-col gap-3"
+              className="flex flex-col gap-3 rounded-xl border-2 border-solid p-4"
             >
               <Skeleton />
               <Skeleton height="medium" />

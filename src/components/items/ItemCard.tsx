@@ -9,7 +9,7 @@ interface ItemCardProps {
 
 const ItemCard = ({ item }: ItemCardProps) => {
   return (
-    <div className="rounded-xl border-2 border-solid p-4 flex flex-col gap-3">
+    <div className="flex flex-col gap-3 rounded-xl border-2 border-solid p-4">
       <Text variant="h4" className="font-semibold">
         {item.name}
       </Text>
@@ -18,7 +18,7 @@ const ItemCard = ({ item }: ItemCardProps) => {
         width={50}
         height={50}
         alt={item.name}
-        className="w-screen max-h-[400px] object-cover rounded-xl"
+        className="max-h-[400px] w-screen rounded-xl object-cover"
       />
     </div>
   );

@@ -3,6 +3,8 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
 import Logo from '/public/images/lolLogo.png';
+import { IoMoonOutline } from 'react-icons/io5';
+import { IoMoon } from 'react-icons/io5';
 
 const Header = () => {
   const navList = [
@@ -13,8 +15,8 @@ const Header = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-screen h-[70px] bg-gray-900 text-white flex items-center px-8 z-50">
-      <div className="flex gap-3 items-center">
+    <nav className="fixed left-0 top-0 z-50 flex h-[70px] w-screen items-center justify-between bg-gray-900 px-8">
+      <div className="flex items-center gap-3">
         {navList.map((nav) => {
           return (
             <Link
@@ -22,7 +24,7 @@ const Header = () => {
               href={nav.href}
               className={clsx(
                 'rounded-lg px-3 py-2 text-gray-300',
-                nav.href !== PATH.HOME && 'hover:bg-gray-700'
+                nav.href !== PATH.HOME && 'hover:bg-gray-700 hover:text-white',
               )}
             >
               {nav.href === PATH.HOME ? (
@@ -34,6 +36,8 @@ const Header = () => {
           );
         })}
       </div>
+      <IoMoon size={30} color="#D1D5DB" />
+      <IoMoonOutline size={30} color="#D1D5DB" />
     </nav>
   );
 };

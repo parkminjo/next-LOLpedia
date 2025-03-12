@@ -11,19 +11,19 @@ const Home = () => {
         src={Background}
         alt="배경"
         priority
-        className="w-screen h-screen min-h-[cal(100vh-70px)] object-cover relative"
+        className="relative h-screen min-h-[cal(100vh-70px)] w-screen object-cover"
       />
       <Image
         src={LOLText}
         alt="League of Legend"
         priority
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1000px]"
+        className="absolute left-1/2 top-1/2 w-full max-w-[1000px] -translate-x-1/2 -translate-y-1/2"
       />
       <Link
         href={URL.LOL}
         target="_blank"
         rel="noopener noreferrer"
-        className="absolute top-[80%] left-1/2 -translate-x-1/2 text-xl font-semibold rounded-lg bg-gold px-6 py-4 hover:bg-hoverGold"
+        className="absolute left-1/2 top-[80%] -translate-x-1/2 rounded-lg bg-gold px-6 py-4 text-xl font-semibold hover:bg-hoverGold"
       >
         플레이하러 가기
       </Link>

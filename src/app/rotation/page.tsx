@@ -16,12 +16,12 @@ const Rotation = () => {
   } = useCustomQuery(QUERY_KEY.FREE_CHAMPION_IDS, fetchChampionsRotation);
   const { data: championList } = useCustomQuery(
     QUERY_KEY.CHAMPION_LIST,
-    fetchChampionList
+    fetchChampionList,
   );
 
   const freeChampionList: Champion[] =
     championList?.filter((champion) =>
-      freeChampionIds?.includes(Number(champion.key))
+      freeChampionIds?.includes(Number(champion.key)),
     ) || [];
 
   /** UI */
@@ -31,7 +31,7 @@ const Rotation = () => {
 
   if (isError) {
     return (
-      <div className="mt-10 flex justify-center items-center">
+      <div className="mt-10 flex items-center justify-center">
         <Text variant="h2">
           챔피언 로테이션 정보를 불러오는데 에러가 발생하였습니다
         </Text>

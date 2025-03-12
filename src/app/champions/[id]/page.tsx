@@ -26,10 +26,10 @@ const ChampionDetail = async ({ params }: ChampionDetailProps) => {
         height={500}
         alt={championData.id}
         priority
-        className="relative w-screen h-screen object-cover"
+        className="relative h-screen w-screen object-cover"
       />
       <div className="absolute inset-0 bg-black/50"></div>
-      <div className="absolute top-[40%] left-20 flex flex-col gap-4">
+      <div className="absolute left-20 top-[40%] flex flex-col gap-4">
         <Text variant="h1" className="text-gold">
           {championData.name}
         </Text>

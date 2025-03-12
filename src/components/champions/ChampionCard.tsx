@@ -8,7 +8,7 @@ import { Text } from '../ui/Text';
 const ChampionCard = ({ champion }: ChampionCardProps) => {
   return (
     <Link href={`${PATH.CHAMPIONS}/${champion.id}`}>
-      <div className="rounded-xl border-2 border-solid p-4 flex flex-col gap-3">
+      <div className="flex flex-col gap-3 rounded-xl border-2 border-solid p-4">
         <div>
           <Text variant="h3">{champion.name}</Text>
           <Text className="text-gray-500">{champion.title}</Text>
@@ -19,7 +19,7 @@ const ChampionCard = ({ champion }: ChampionCardProps) => {
           height={50}
           alt={champion.id}
           priority
-          className="w-screen max-h-[400px] object-cover"
+          className="max-h-[400px] w-screen object-cover"
         />
       </div>
     </Link>
