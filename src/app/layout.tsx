@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
 import Providers from '@/providers/TQProvider';
+import { ThemeProvider } from '@/providers/ThemeProvider';
 
 const pretendard = localFont({
   src: '../../public/fonts/PretendardVariable.woff2',
@@ -21,11 +22,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
+    <html lang="ko" suppressHydrationWarning>
       <body className={pretendard.className}>
         <Providers>
-          <Header />
-          <div className="w-screen pt-[70px]">{children}</div>
+          <ThemeProvider>
+            <Header />
+            <div className="prose dark:prose-invert w-screen pt-[70px]">
+              {children}
+            </div>
+          </ThemeProvider>
         </Providers>
       </body>
     </html>

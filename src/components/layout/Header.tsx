@@ -3,8 +3,7 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
 import Logo from '/public/images/lolLogo.png';
-import { IoMoonOutline } from 'react-icons/io5';
-import { IoMoon } from 'react-icons/io5';
+import ThemeSwitchButton from './ThemeSwitchButton';
 
 const Header = () => {
   const navList = [
@@ -36,8 +35,7 @@ const Header = () => {
           );
         })}
       </div>
-      <IoMoon size={30} color="#D1D5DB" />
-      <IoMoonOutline size={30} color="#D1D5DB" />
+      <ThemeSwitchButton />
     </nav>
   );
 };

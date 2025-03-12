@@ -7,6 +7,14 @@
   --foreground: #171717;
 }
 
+.dark {
+  --background: var(--black);
+  --foreground: var(--white);
+
+  --primary: 210 40% 98%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
