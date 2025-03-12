@@ -2,6 +2,7 @@ import Header from '@/components/layout/Header';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
+import Providers from '@/providers/TQProvider';
 
 const pretendard = localFont({
   src: '../../public/fonts/PretendardVariable.woff2',
@@ -22,10 +23,12 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={pretendard.className}>
-        <Header />
-        <div className="w-screen max-h-screen min-h-[cal(100vh-70px)]">
-          {children}
-        </div>
+        <Providers>
+          <Header />
+          <div className="w-screen max-h-screen min-h-[cal(100vh-70px)]">
+            {children}
+          </div>
+        </Providers>
       </body>
     </html>
   );
