@@ -5,6 +5,15 @@ import { ChampionDetailProps } from '@/types/props';
 import { fetchChampionData } from '@/utils/serverApi';
 import Image from 'next/image';
 
+export const generateMetadata = ({ params }: ChampionDetailProps) => {
+  const championId = params.id;
+
+  return {
+    title: championId,
+    description: championId,
+  };
+};
+
 const ChampionDetail = async ({ params }: ChampionDetailProps) => {
   const championId = params.id;
   const championData: Champion = await fetchChampionData(championId);
