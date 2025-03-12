@@ -1,7 +1,7 @@
 import { URL } from '@/constants/url';
 import ChampionRotation from '@/types/ChampionRotation';
 
-export async function GET(request: Request) {
+export async function GET() {
   const apiKey = process.env.NEXT_PUBLIC_RIOT_API_KEY;
   if (!apiKey) return;
 
