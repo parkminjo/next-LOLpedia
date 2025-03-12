@@ -1,4 +1,4 @@
-import SkeletonUI from '@/components/ui/SkeletonUI';
+import Skeleton from '@/components/ui/Skeleton';
 import { ARRAY_LENGTH } from '@/constants/number';
 
 const Loading = () => {
@@ -11,8 +11,8 @@ const Loading = () => {
               key={i}
               className="rounded-xl border-2 border-solid p-4 flex flex-col gap-3"
             >
-              <SkeletonUI />
-              <SkeletonUI height="medium" />
+              <Skeleton />
+              <Skeleton height="medium" />
             </div>
           );
         })}

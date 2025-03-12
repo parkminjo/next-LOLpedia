@@ -1,11 +1,11 @@
 import clsx from 'clsx';
 
-type SkeletonUIProps = {
+type SkeletonProps = {
   height?: 'small' | 'medium' | 'large';
   className?: string;
 };
 
-const SkeletonUI = ({ height = 'small', className }: SkeletonUIProps) => {
+const Skeleton = ({ height = 'small', className }: SkeletonProps) => {
   const baseStyle = 'rounded-xl bg-gray-300 animate-pulse';
   const heights = {
     small: 'min-h-[30px]',
@@ -16,4 +16,4 @@ const SkeletonUI = ({ height = 'small', className }: SkeletonUIProps) => {
   return <div className={clsx(baseStyle, heights[height], className)}></div>;
 };
 
-export default SkeletonUI;
+export default Skeleton;

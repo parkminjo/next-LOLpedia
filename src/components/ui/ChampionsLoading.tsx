@@ -1,5 +1,5 @@
-import SkeletonUI from '@/components/ui/SkeletonUI';
 import { ARRAY_LENGTH } from '@/constants/number';
+import Skeleton from './Skeleton';
 
 export const ChampionsLoading = () => {
   return (
@@ -11,9 +11,9 @@ export const ChampionsLoading = () => {
               key={i}
               className="rounded-xl border-2 border-solid p-4 flex flex-col gap-3"
             >
-              <SkeletonUI />
-              <SkeletonUI />
-              <SkeletonUI height="large" />
+              <Skeleton />
+              <Skeleton />
+              <Skeleton height="large" />
             </div>
           );
         })}
