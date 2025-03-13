@@ -1,6 +1,8 @@
 import { URL } from '@/constants/url';
 import ChampionRotation from '@/types/ChampionRotation';
 
+export const dynamic = 'force-static';
+
 export async function GET() {
   const apiKey = process.env.NEXT_PUBLIC_RIOT_API_KEY;
 
