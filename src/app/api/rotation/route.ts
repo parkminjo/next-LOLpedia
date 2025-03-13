@@ -17,10 +17,16 @@ export async function GET() {
         'X-Riot-Token': apiKey,
       } as HeadersInit,
     });
-    const { freeChampionIds }: ChampionRotation = await response.json();
 
-    return Response.json({ freeChampionIds });
-  } catch (error) {
-    console.error(error);
+    const data: ChampionRotation = await response.json();
+
+    return Response.json({ freeChampionIds: data.freeChampionIds });
+  } catch (error: unknown) {
+    return Response.json(
+      {
+        error: `무료 로테이션 챔피언 정보를 불러오는데 실패하였습니다. Error: ${error}`,
+      },
+      { status: 500 },
+    );
   }
 }
