@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 
-type SkeletonProps = {
+interface SkeletonProps {
   height?: 'small' | 'medium' | 'large';
   className?: string;
-};
+}
 
 const Skeleton = ({ height = 'small', className }: SkeletonProps) => {
   const baseStyle = 'rounded-xl bg-gray-300 animate-pulse';

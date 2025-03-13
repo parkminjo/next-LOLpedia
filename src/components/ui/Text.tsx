@@ -1,11 +1,11 @@
 import clsx from 'clsx';
 import { JSX, ReactNode } from 'react';
 
-type TextProps = {
+interface TextProps {
   variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'p';
   children: ReactNode;
   className?: string;
-};
+}
 
 export const Text = ({ variant = 'p', children, className }: TextProps) => {
   const variants = {
