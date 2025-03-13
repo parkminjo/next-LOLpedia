@@ -21,7 +21,7 @@ export async function GET() {
     const data: ChampionRotation = await response.json();
 
     return Response.json({ freeChampionIds: data.freeChampionIds });
-  } catch (error: unknown) {
+  } catch (error) {
     return Response.json(
       {
         error: `무료 로테이션 챔피언 정보를 불러오는데 실패하였습니다. Error: ${error}`,
