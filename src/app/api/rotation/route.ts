@@ -3,7 +3,6 @@ import ChampionRotation from '@/types/ChampionRotation';
 
 export async function GET() {
   const apiKey = process.env.NEXT_PUBLIC_RIOT_API_KEY;
-  if (!apiKey) return;
 
   try {
     const response = await fetch(URL.CHAMPIONS_ROTATION_DATA, {
@@ -14,7 +13,7 @@ export async function GET() {
         'Accept-Charset': 'application/x-www-form-urlencoded; charset=UTF-8',
         Origin: 'https://developer.riotgames.com',
         'X-Riot-Token': apiKey,
-      },
+      } as HeadersInit,
     });
     const { freeChampionIds }: ChampionRotation = await response.json();
 
