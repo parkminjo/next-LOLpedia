@@ -25,9 +25,11 @@ const ItemDetail = async ({ params }: ParamsProps) => {
           alt={itemData.name}
           className="w-[100px] rounded-xl object-cover"
         />
-        <Text className="rounded-xl border-2 border-solid border-gold p-5 text-gray-200">
-          {itemData.plaintext}
-        </Text>
+        {itemData.plaintext && (
+          <Text className="rounded-xl border-2 border-solid border-gold p-5 text-gray-200">
+            {itemData.plaintext}
+          </Text>
+        )}
       </div>
     </div>
   );
