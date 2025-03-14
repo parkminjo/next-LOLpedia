@@ -1,7 +1,36 @@
-import React from 'react';
+import { Text } from '@/components/ui/Text';
+import { URL } from '@/constants/url';
+import { ParamsProps } from '@/types/props';
+import { fetchItemList } from '@/utils/serverApi';
+import Image from 'next/image';
 
-const ItemDetail = () => {
-  return <div>ItemDetail</div>;
+const ItemDetail = async ({ params }: ParamsProps) => {
+  const itemId = decodeURIComponent(params.id);
+
+  const itemList = await fetchItemList();
+  const [itemData] = itemList.filter(
+    (item) => item.name.replace(/(\s*)/g, '') === itemId,
+  );
+
+  return (
+    <div className="my-20 flex items-center justify-center">
+      <div className="flex min-h-[400px] min-w-[400px] flex-col items-center justify-center gap-10 rounded-xl border-8 border-solid border-gold bg-gray-900">
+        <Text variant="h3" className="text-white">
+          {itemData.name}
+        </Text>
+        <Image
+          src={`${URL.ITEMS_IMG}/${itemData.image.full}`}
+          width={50}
+          height={50}
+          alt={itemData.name}
+          className="w-[100px] rounded-xl object-cover"
+        />
+        <Text className="rounded-xl border-2 border-solid border-gold p-5 text-gray-200">
+          {itemData.plaintext}
+        </Text>
+      </div>
+    </div>
+  );
 };
 
 export default ItemDetail;
