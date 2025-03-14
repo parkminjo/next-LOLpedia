@@ -5,7 +5,6 @@ import ChampionsLoading from '@/components/ui/ChampionsLoading';
 import { Text } from '@/components/ui/Text';
 import { QUERY_KEY } from '@/constants/queryKeys';
 import { useCustomQuery } from '@/hooks/useQuery';
-import Champion from '@/types/Champion';
 import { fetchChampionList, fetchChampionsRotation } from '@/utils/serverApi';
 
 const Rotation = () => {
@@ -19,7 +18,7 @@ const Rotation = () => {
     fetchChampionList,
   );
 
-  const freeChampionList: Champion[] =
+  const freeChampionList =
     championList?.filter((champion) =>
       freeChampionIds?.includes(Number(champion.key)),
     ) || [];

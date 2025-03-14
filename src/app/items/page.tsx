@@ -1,12 +1,11 @@
 import ItemCard from '@/components/items/ItemCard';
 import { Text } from '@/components/ui/Text';
-import Item from '@/types/Item';
 import { fetchItemList } from '@/utils/serverApi';
 import { Suspense } from 'react';
 import Loading from './loading';
 
 const Items = async () => {
-  const itemList: Item[] = await fetchItemList();
+  const itemList = await fetchItemList();
 
   return (
     <div className="container mx-auto my-10 flex flex-col gap-8">

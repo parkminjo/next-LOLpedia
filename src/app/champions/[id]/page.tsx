@@ -1,6 +1,5 @@
 import { Text } from '@/components/ui/Text';
 import { URL } from '@/constants/url';
-import Champion from '@/types/Champion';
 import { ChampionDetailProps } from '@/types/props';
 import { fetchChampionData } from '@/utils/serverApi';
 import Image from 'next/image';
@@ -16,7 +15,16 @@ export const generateMetadata = ({ params }: ChampionDetailProps) => {
 
 const ChampionDetail = async ({ params }: ChampionDetailProps) => {
   const championId = params.id;
-  const championData: Champion = await fetchChampionData(championId);
+  const championData = await fetchChampionData(championId);
+
+  /** UI */
+  if (!championData) {
+    return (
+      <div className="mt-10 flex flex-col items-center justify-center gap-4">
+        <Text variant="h2">챔피언 데이터를 불러오지 못하였습니다.</Text>
+      </div>
+    );
+  }
 
   return (
     <div className="relative">

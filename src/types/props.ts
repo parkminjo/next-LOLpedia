@@ -1,23 +1,23 @@
 import Champion from './Champion';
 
-export interface ChampionDetailProps {
+export type ChampionDetailProps = {
   params: {
     id: string;
   };
-}
-export interface ChampionCardProps {
+};
+export type ChampionCardProps = {
   champion: Champion;
-}
+};
 
-export interface ChampionListProps {
+export type ChampionListProps = {
   championList: Champion[];
-}
+};
 
-export interface LoadingProps {
+export type LoadingProps = {
   state: string;
-}
+};
 
-export interface ErrorPageProps {
+export type ErrorPageProps = {
   error: Error;
   handleTryAgain: () => void;
-}
+};

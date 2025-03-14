@@ -8,7 +8,7 @@ import Item from '@/types/Item';
  * LOL 챔피언 데이터 가져오는 함수
  * @returns Object.values(data) - 챔피언 리스트
  */
-export const fetchChampionList = async (): Promise<Champion[] | null> => {
+export const fetchChampionList = async (): Promise<Champion[]> => {
   try {
     const response = await fetch(`${URL.CHAMPIONS_DATA}.json`, {
       next: {
@@ -16,11 +16,12 @@ export const fetchChampionList = async (): Promise<Champion[] | null> => {
       },
     });
     const { data } = await response.json();
+    const championList: Champion[] = Object.values(data);
 
-    return Object.values(data) || [];
+    return championList;
   } catch (error) {
     console.error(error);
-    return null;
+    return [];
   }
 };
 
@@ -30,14 +31,15 @@ export const fetchChampionList = async (): Promise<Champion[] | null> => {
  */
 export const fetchChampionData = async (
   championId: string,
-): Promise<object | null> => {
+): Promise<Champion | null> => {
   try {
     const response = await fetch(`${URL.CHAMPIONS_DATA}/${championId}.json`, {
       cache: 'no-store',
     });
-    const { data: championData } = await response.json();
+    const { data } = await response.json();
+    const championData: Champion = data[championId];
 
-    return championData[championId];
+    return championData;
   } catch (error) {
     console.error(error);
     return null;
@@ -48,17 +50,18 @@ export const fetchChampionData = async (
  * LOL 아이템 데이터 가져오는 함수
  * @returns Object.values(data) - 아이템 리스트
  */
-export const fetchItemList = async (): Promise<Item[] | null> => {
+export const fetchItemList = async (): Promise<Item[]> => {
   try {
     const response = await fetch(URL.ITEMS_DATA, {
       cache: 'force-cache',
     });
     const { data } = await response.json();
+    const itemList: Item[] = Object.values(data);
 
-    return Object.values(data) || [];
+    return itemList;
   } catch (error) {
     console.error(error);
-    return null;
+    return [];
   }
 };
 
@@ -66,7 +69,7 @@ export const fetchItemList = async (): Promise<Item[] | null> => {
  * 무료 플레이가 가능한 챔피언 아이디를 가져오는 함수
  * @returns freeChampionIds - 무료 챔피언 아이디 리스트
  */
-export const fetchChampionsRotation = async (): Promise<number[] | null> => {
+export const fetchChampionsRotation = async (): Promise<number[]> => {
   try {
     const response = await fetch(URL.NEXT_SERVER_ROTATION);
     const { freeChampionIds }: ChampionRotation = await response.json();
@@ -74,6 +77,6 @@ export const fetchChampionsRotation = async (): Promise<number[] | null> => {
     return freeChampionIds;
   } catch (error) {
     console.error(error);
-    return null;
+    return [];
   }
 };
