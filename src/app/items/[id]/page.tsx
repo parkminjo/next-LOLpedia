@@ -26,7 +26,7 @@ const ItemDetail = async ({ params }: ParamsProps) => {
           className="w-[100px] rounded-xl object-cover"
         />
         {itemData.plaintext && (
-          <Text className="rounded-xl border-2 border-solid border-gold p-5 text-gray-200">
+          <Text className="max-w-[300px] rounded-xl border-2 border-solid border-gold p-5 text-gray-200">
             {itemData.plaintext}
           </Text>
         )}
