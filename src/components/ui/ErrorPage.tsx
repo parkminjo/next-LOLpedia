@@ -1,9 +1,5 @@
+import { ErrorPageProps } from '@/types/props';
 import { Text } from './Text';
-
-interface ErrorPageProps {
-  error: Error;
-  handleTryAgain: () => void;
-}
 
 const ErrorPage = ({ error, handleTryAgain }: ErrorPageProps) => {
   return (

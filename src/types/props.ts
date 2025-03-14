@@ -16,3 +16,8 @@ export interface ChampionListProps {
 export interface LoadingProps {
   state: string;
 }
+
+export interface ErrorPageProps {
+  error: Error;
+  handleTryAgain: () => void;
+}
