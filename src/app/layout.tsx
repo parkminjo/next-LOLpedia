@@ -27,9 +27,7 @@ export default function RootLayout({
         <Providers>
           <ThemeProvider attribute="class" defaultTheme="system">
             <Header />
-            <div className="prose dark:prose-invert w-screen pt-[70px]">
-              {children}
-            </div>
+            <div className="pt-[70px]">{children}</div>
           </ThemeProvider>
         </Providers>
       </body>
