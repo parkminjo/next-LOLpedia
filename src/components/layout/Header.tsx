@@ -2,8 +2,8 @@ import { PATH } from '@/constants/routerPath';
 import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
+import ThemeToggleButton from './ThemeToggleButton';
 import Logo from '/public/images/lolLogo.png';
-import ThemeSwitchButton from './ThemeSwitchButton';
 
 const Header = () => {
   const navList = [
@@ -35,7 +35,7 @@ const Header = () => {
           );
         })}
       </div>
-      <ThemeSwitchButton />
+      <ThemeToggleButton />
     </nav>
   );
 };
