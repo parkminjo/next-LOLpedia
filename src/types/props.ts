@@ -1,6 +1,6 @@
 import Champion from './Champion';
 
-export type ChampionDetailProps = {
+export type ParamsProps = {
   params: {
     id: string;
   };

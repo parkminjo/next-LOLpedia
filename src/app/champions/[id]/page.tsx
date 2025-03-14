@@ -1,10 +1,10 @@
 import { Text } from '@/components/ui/Text';
 import { URL } from '@/constants/url';
-import { ChampionDetailProps } from '@/types/props';
+import { ParamsProps } from '@/types/props';
 import { fetchChampionData } from '@/utils/serverApi';
 import Image from 'next/image';
 
-export const generateMetadata = ({ params }: ChampionDetailProps) => {
+export const generateMetadata = ({ params }: ParamsProps) => {
   const championId = params.id;
 
   return {
@@ -13,7 +13,7 @@ export const generateMetadata = ({ params }: ChampionDetailProps) => {
   };
 };
 
-const ChampionDetail = async ({ params }: ChampionDetailProps) => {
+const ChampionDetail = async ({ params }: ParamsProps) => {
   const championId = params.id;
   const championData = await fetchChampionData(championId);
 
