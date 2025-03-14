@@ -5,12 +5,7 @@ export default interface Champion {
   name: string;
   title: string;
   blurb: string;
-  info: {
-    attack: number;
-    defense: number;
-    magic: number;
-    difficulty: number;
-  };
+  info: { [key: string]: number };
   image: Image;
   tags: string[];
   partype: string;
