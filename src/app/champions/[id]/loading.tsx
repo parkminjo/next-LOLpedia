@@ -1,7 +1,7 @@
-import ChampionDetailLoading from '@/components/ui/ChampionDetailLoading';
+import DetailLoading from '@/components/ui/ChampionDetailLoading';
 
 const Loading = () => {
-  return <ChampionDetailLoading />;
+  return <DetailLoading />;
 };
 
 export default Loading;

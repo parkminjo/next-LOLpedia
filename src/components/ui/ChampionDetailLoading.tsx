@@ -2,7 +2,7 @@
 
 import { RingLoader } from 'react-spinners';
 
-const ChampionDetailLoading = () => {
+const DetailLoading = () => {
   const SIZE = 300;
   const COLOR = '#D6B771';
 
@@ -13,4 +13,4 @@ const ChampionDetailLoading = () => {
   );
 };
 
-export default ChampionDetailLoading;
+export default DetailLoading;
