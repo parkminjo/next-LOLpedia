@@ -1,20 +1,31 @@
 'use client';
 
 import { useTheme } from 'next-themes';
-import { IoMoon, IoMoonOutline } from 'react-icons/io5';
+import { useEffect, useState } from 'react';
+import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
 
 const ThemeToggleButton = () => {
   const ICON_COLOR = '#D1D5DB';
   const ICON_SIZE = 30;
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   return (
     <div>
-      <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
-        {theme === 'light' ? (
+      <button
+        onClick={() => setTheme(resolvedTheme === 'light' ? 'dark' : 'light')}
+      >
+        {resolvedTheme === 'dark' ? (
           <IoMoonOutline size={ICON_SIZE} color={ICON_COLOR} />
         ) : (
-          <IoMoon size={ICON_SIZE} color={ICON_COLOR} />
+          <IoSunnyOutline size={ICON_SIZE} color={ICON_COLOR} />
         )}
       </button>
     </div>

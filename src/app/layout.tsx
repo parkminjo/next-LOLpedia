@@ -25,7 +25,7 @@ export default function RootLayout({
     <html lang="ko" suppressHydrationWarning>
       <body className={pretendard.className}>
         <Providers>
-          <ThemeProvider>
+          <ThemeProvider attribute="class" defaultTheme="system">
             <Header />
             <div className="prose dark:prose-invert w-screen pt-[70px]">
               {children}
