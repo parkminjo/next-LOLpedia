@@ -9,5 +9,5 @@ export const URL: Record<string, string> = {
     'https://ddragon.leagueoflegends.com/cdn/15.5.1/data/ko_KR/item.json',
   ITEMS_IMG: 'https://ddragon.leagueoflegends.com/cdn/15.5.1/img/item',
   CHAMPIONS_ROTATION_DATA: `https://kr.api.riotgames.com/lol/platform/v3/champion-rotations`,
-  NEXT_SERVER_ROTATION: 'http://lolpedia-lol.vercel.app/api/rotation',
+  NEXT_SERVER_ROTATION: 'https://lolpedia-lol.vercel.app/api/rotation',
 };
