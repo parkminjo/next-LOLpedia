@@ -8,7 +8,7 @@ const Items = async () => {
   const itemList = await fetchItemList();
 
   return (
-    <div className="container mx-auto my-10 flex flex-col gap-8">
+    <div className="container mx-auto my-10 flex flex-col gap-8 px-5">
       <div className="flex flex-col gap-2">
         <Text variant="h2">아이템 목록</Text>
         <Text variant="h4" className="text-gray-500">
@@ -16,7 +16,7 @@ const Items = async () => {
         </Text>
       </div>
       <Suspense fallback={<Loading />}>
-        <div className="grid grid-cols-6 gap-8">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-6">
           {itemList.map((item) => {
             return <ItemCard key={item.name} item={item} />;
           })}
