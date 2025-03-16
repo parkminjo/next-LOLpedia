@@ -14,7 +14,7 @@ const ItemDetail = async ({ params }: ParamsProps) => {
 
   return (
     <div className="my-20 flex items-center justify-center">
-      <div className="flex min-h-[400px] min-w-[400px] flex-col items-center justify-center gap-10 rounded-xl border-8 border-solid border-gold bg-gray-900">
+      <div className="flex min-h-[400px] min-w-[350px] flex-col items-center justify-center gap-10 rounded-xl border-8 border-solid border-gold bg-gray-900 md:min-w-[400px]">
         <Text variant="h3" className="text-white">
           {itemData.name}
         </Text>
