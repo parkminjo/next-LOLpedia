@@ -1,8 +1,7 @@
-import { ICONS } from '@/constants/icons';
 import { PATH } from '@/constants/routerPath';
 import Image from 'next/image';
 import Link from 'next/link';
-import { RxHamburgerMenu } from 'react-icons/rx';
+import { NavToggleButton } from './NavToggleButton';
 import ThemeToggleButton from './ThemeToggleButton';
 import Logo from '/public/images/lolLogo.png';
 
@@ -38,11 +37,9 @@ const Header = () => {
       </div>
 
       {/** 다크 모드 & 햄버거 바 */}
-      <div className="flex gap-4">
+      <div className="flex gap-3">
         <ThemeToggleButton />
-        <button className="md:hidden">
-          <RxHamburgerMenu size={ICONS.SIZE.BASE} color={ICONS.COLOR.BASE} />
-        </button>
+        <NavToggleButton />
       </div>
     </nav>
   );
