@@ -10,10 +10,10 @@ export const NavToggleButton = ({ navList }: NavToggleButtonProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="flex items-center">
+    <div>
       <button
         onClick={() => setIsMenuOpen((prev) => !prev)}
-        className="md:hidden"
+        className="flex items-center md:hidden"
       >
         <RxHamburgerMenu size={ICONS.SIZE.BASE} color={ICONS.COLOR.BASE} />
       </button>
