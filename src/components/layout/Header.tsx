@@ -13,7 +13,7 @@ const Header = () => {
   ];
 
   return (
-    <nav className="fixed left-0 top-0 z-50 flex h-[70px] w-screen items-center justify-between bg-gray-900 px-3 md:px-8">
+    <nav className="fixed left-0 top-0 z-50 flex h-[60px] w-screen items-center justify-between bg-gray-900 px-3 md:h-[70px] md:px-8">
       <div className="flex items-center gap-4">
         {/** 로고 */}
         <Link href={PATH.HOME}>
@@ -39,7 +39,7 @@ const Header = () => {
       {/** 다크 모드 & 햄버거 바 */}
       <div className="flex gap-3">
         <ThemeToggleButton />
-        <NavToggleButton />
+        <NavToggleButton navList={navList} />
       </div>
     </nav>
   );

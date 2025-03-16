@@ -27,7 +27,7 @@ export default function RootLayout({
         <Providers>
           <ThemeProvider attribute="class" defaultTheme="system">
             <Header />
-            <div className="pt-[70px]">{children}</div>
+            <div className="pt-[60px] md:pt-[70px]">{children}</div>
           </ThemeProvider>
         </Providers>
       </body>

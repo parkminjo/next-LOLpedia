@@ -11,7 +11,7 @@ const Home = () => {
         src={Background}
         alt="배경"
         priority
-        className="relative h-screen min-h-[cal(100vh-70px)] w-screen object-cover"
+        className="relative h-screen w-screen object-cover"
       />
       <Image
         src={LOLText}
