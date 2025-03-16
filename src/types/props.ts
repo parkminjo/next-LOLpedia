@@ -21,3 +21,7 @@ export type ErrorPageProps = {
   error: Error;
   handleTryAgain: () => void;
 };
+
+export type NavToggleButtonProps = {
+  navList: { href: string; name: string }[];
+};
