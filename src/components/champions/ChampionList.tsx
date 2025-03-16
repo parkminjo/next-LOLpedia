@@ -3,7 +3,7 @@ import ChampionCard from './ChampionCard';
 
 const ChampionList = ({ championList }: ChampionListProps) => {
   return (
-    <div className="grid grid-cols-4 gap-8">
+    <div className="grid gap-8 md:grid-cols-3 lg:grid-cols-4">
       {championList.map((champion) => {
         return <ChampionCard key={champion.key} champion={champion} />;
       })}
