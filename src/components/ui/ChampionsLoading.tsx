@@ -4,7 +4,7 @@ import Skeleton from './Skeleton';
 export const ChampionsLoading = () => {
   return (
     <div className="container mx-auto mt-10 flex flex-col gap-8">
-      <div className="grid grid-cols-4 gap-8">
+      <div className="grid gap-8 md:grid-cols-3 lg:grid-cols-4">
         {Array.from({ length: ARRAY_LENGTH.FOUR }).map((item, i) => {
           return (
             <div
