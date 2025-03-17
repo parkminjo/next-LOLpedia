@@ -22,7 +22,7 @@ Next.js에서 제공하는 4가지 기법의 렌더링을 페이지마다 모두
 
 ## 목적
 
-- 실무에서 자주 사용하는 Next.js와 Typescript 경험 쌇기
+- 실무에서 자주 사용하는 Next.js와 Typescript 경험 쌓기
 - 동적 라우팅, App Router, 레이아웃 구성, Route Handle 등 Next.js의 핵심 기능 다뤄보기
 - TypeScript를 사용해보면서 타입 안정성 향상되는 경험해보기
 
@@ -54,7 +54,6 @@ Next.js에서 제공하는 4가지 기법의 렌더링을 페이지마다 모두
 
 ![다크모드](https://github.com/user-attachments/assets/62dac07d-867b-496a-87ec-22044765a07c)
 
-
 ## 2️⃣ 로딩 및 에러 핸들링
 
 데이터가 아직 로딩 중이거나 잘 불러와지지 않았을 때,
@@ -64,7 +63,6 @@ Next.js에서 제공하는 4가지 기법의 렌더링을 페이지마다 모두
 ![로딩 핸들링](https://github.com/user-attachments/assets/5bbf90ca-4d71-471a-b689-74fdf991421f)
 
 ![에러 핸들링](https://github.com/user-attachments/assets/fa418894-9870-4363-b1e0-073c097b124a)
-
 
 ---
 
