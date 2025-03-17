@@ -30,8 +30,8 @@ const Rotation = () => {
 
   if (isError) {
     return (
-      <div className="mt-10 flex items-center justify-center">
-        <Text variant="h2">
+      <div className="mt-10 flex items-center justify-center px-8">
+        <Text variant="h4" className="font-semibold md:text-3xl">
           챔피언 로테이션 정보를 불러오는데 에러가 발생하였습니다
         </Text>
       </div>
