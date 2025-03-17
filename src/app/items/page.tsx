@@ -16,7 +16,7 @@ const Items = async () => {
         </Text>
       </div>
       <Suspense fallback={<Loading />}>
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-6">
+        <div className="grid gap-4 md:grid-cols-4 lg:grid-cols-6">
           {itemList.map((item) => {
             return <ItemCard key={item.name} item={item} />;
           })}
