@@ -1,4 +1,4 @@
-import ItemCard from '@/components/items/ItemCard';
+import ItemCard from '@/components/features/items/ItemCard';
 import { Text } from '@/components/ui/Text';
 import { fetchItemList } from '@/utils/serverApi';
 import { Suspense } from 'react';

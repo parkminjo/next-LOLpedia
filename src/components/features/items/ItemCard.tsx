@@ -1,9 +1,9 @@
-import { URL } from '@/constants/url';
-import Image from 'next/image';
-import { Text } from '../ui/Text';
-import Item from '@/types/Item';
-import Link from 'next/link';
+import { Text } from '@/components/ui/Text';
 import { PATH } from '@/constants/routerPath';
+import { URL } from '@/constants/url';
+import Item from '@/types/Item';
+import Image from 'next/image';
+import Link from 'next/link';
 
 interface ItemCardProps {
   item: Item;

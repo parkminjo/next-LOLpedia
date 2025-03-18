@@ -1,9 +1,9 @@
+import { Text } from '@/components/ui/Text';
 import { PATH } from '@/constants/routerPath';
 import { URL } from '@/constants/url';
 import { ChampionCardProps } from '@/types/props';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Text } from '../ui/Text';
 
 const ChampionCard = ({ champion }: ChampionCardProps) => {
   return (

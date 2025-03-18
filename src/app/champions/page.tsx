@@ -1,8 +1,8 @@
-import ChampionList from '@/components/champions/ChampionList';
 import { Text } from '@/components/ui/Text';
 import { fetchChampionList } from '@/utils/serverApi';
 import { Suspense } from 'react';
 import Loading from './loading';
+import ChampionList from '@/components/features/champions/ChampionList';
 
 const Champions = async () => {
   const championList = await fetchChampionList();

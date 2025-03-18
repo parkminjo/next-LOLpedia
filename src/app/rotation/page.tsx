@@ -1,6 +1,6 @@
 'use client';
 
-import ChampionList from '@/components/champions/ChampionList';
+import ChampionList from '@/components/features/champions/ChampionList';
 import ChampionsLoading from '@/components/ui/ChampionsLoading';
 import { Text } from '@/components/ui/Text';
 import { QUERY_KEY } from '@/constants/queryKeys';
