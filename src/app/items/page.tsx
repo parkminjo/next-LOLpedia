@@ -2,7 +2,7 @@ import ItemCard from '@/components/features/items/ItemCard';
 import { Text } from '@/components/ui/Text';
 import { fetchItemList } from '@/utils/serverApi';
 
-const Items = async () => {
+const ItemsPage = async () => {
   const itemList = await fetchItemList();
 
   return (
@@ -22,4 +22,4 @@ const Items = async () => {
   );
 };
 
-export default Items;
+export default ItemsPage;

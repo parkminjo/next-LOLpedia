@@ -2,7 +2,7 @@ import ChampionList from '@/components/features/champions/ChampionList';
 import { Text } from '@/components/ui/Text';
 import { fetchChampionList } from '@/utils/serverApi';
 
-const Champions = async () => {
+const ChampionsPage = async () => {
   const championList = await fetchChampionList();
 
   return (
@@ -18,4 +18,4 @@ const Champions = async () => {
   );
 };
 
-export default Champions;
+export default ChampionsPage;

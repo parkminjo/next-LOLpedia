@@ -7,7 +7,7 @@ import { QUERY_KEY } from '@/constants/queryKeys';
 import { useCustomQuery } from '@/hooks/useQuery';
 import { fetchChampionsRotation } from '@/utils/rotationApi';
 
-const Rotation = () => {
+const RotationPage = () => {
   const {
     data: freeChampionList,
     isPending,
@@ -42,4 +42,4 @@ const Rotation = () => {
   );
 };
 
-export default Rotation;
+export default RotationPage;
