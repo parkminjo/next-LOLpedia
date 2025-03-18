@@ -4,12 +4,13 @@ import { ParamsProps } from '@/types/props';
 import { fetchChampionData } from '@/utils/serverApi';
 import Image from 'next/image';
 
-export const generateMetadata = ({ params }: ParamsProps) => {
+export const generateMetadata = async ({ params }: ParamsProps) => {
   const championId = params.id;
+  const championData = await fetchChampionData(championId);
 
   return {
-    title: championId,
-    description: championId,
+    title: championData?.name,
+    description: championData?.lore,
   };
 };
 
