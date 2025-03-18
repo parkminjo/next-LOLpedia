@@ -5,7 +5,8 @@ import ChampionsLoading from '@/components/ui/ChampionsLoading';
 import { Text } from '@/components/ui/Text';
 import { QUERY_KEY } from '@/constants/queryKeys';
 import { useCustomQuery } from '@/hooks/useQuery';
-import { fetchChampionList, fetchChampionsRotation } from '@/utils/serverApi';
+import { fetchChampionsRotation } from '@/utils/rotationApi';
+import { fetchChampionList } from '@/utils/serverApi';
 
 const Rotation = () => {
   const {

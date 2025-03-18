@@ -1,7 +1,8 @@
+'use server';
+
 import { REVALIDATE_TIME_24_HOURS } from '@/constants/number';
 import { URL } from '@/constants/url';
 import Champion from '@/types/Champion';
-import ChampionRotation from '@/types/ChampionRotation';
 import Item from '@/types/Item';
 
 /**
@@ -59,22 +60,6 @@ export const fetchItemList = async (): Promise<Item[]> => {
     const itemList: Item[] = Object.values(data);
 
     return itemList;
-  } catch (error) {
-    console.error(error);
-    return [];
-  }
-};
-
-/**
- * 무료 플레이가 가능한 챔피언 아이디를 가져오는 함수
- * @returns freeChampionIds - 무료 챔피언 아이디 리스트
- */
-export const fetchChampionsRotation = async (): Promise<number[]> => {
-  try {
-    const response = await fetch(URL.NEXT_SERVER_ROTATION);
-    const { freeChampionIds }: ChampionRotation = await response.json();
-
-    return freeChampionIds;
   } catch (error) {
     console.error(error);
     return [];
