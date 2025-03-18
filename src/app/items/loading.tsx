@@ -4,7 +4,7 @@ import { ARRAY_LENGTH } from '@/constants/number';
 const Loading = () => {
   return (
     <div className="container mx-auto mt-10 flex flex-col gap-8">
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-6">
+      <div className="grid gap-4 md:grid-cols-4 lg:grid-cols-6">
         {Array.from({ length: ARRAY_LENGTH.SIX }).map((item, i) => {
           return (
             <div
