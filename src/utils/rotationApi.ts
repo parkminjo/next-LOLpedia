@@ -1,16 +1,16 @@
 import { URL } from '@/constants/url';
-import ChampionRotation from '@/types/ChampionRotation';
+import Champion from '@/types/Champion';
 
 /**
  * 무료 플레이가 가능한 챔피언 아이디를 가져오는 함수
  * @returns freeChampionIds - 무료 챔피언 아이디 리스트
  */
-export const fetchChampionsRotation = async (): Promise<number[]> => {
+export const fetchChampionsRotation = async (): Promise<Champion[]> => {
   try {
     const response = await fetch(URL.NEXT_SERVER_ROTATION);
-    const { freeChampionIds }: ChampionRotation = await response.json();
+    const { freeChampionList } = await response.json();
 
-    return freeChampionIds;
+    return freeChampionList;
   } catch (error) {
     console.error(error);
     return [];

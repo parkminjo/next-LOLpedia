@@ -1,4 +1,6 @@
+import { REVALIDATE_TIME_24_HOURS } from '@/constants/number';
 import { URL } from '@/constants/url';
+import Champion from '@/types/Champion';
 import ChampionRotation from '@/types/ChampionRotation';
 
 export const dynamic = 'force-static';
@@ -7,20 +9,28 @@ export async function GET() {
   const apiKey = process.env.NEXT_PUBLIC_RIOT_API_KEY;
 
   try {
-    const response = await fetch(URL.CHAMPIONS_ROTATION_DATA, {
-      headers: {
-        'User-Agent':
-          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36',
-        'Accept-Language': 'ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7',
-        'Accept-Charset': 'application/x-www-form-urlencoded; charset=UTF-8',
-        Origin: 'https://developer.riotgames.com',
-        'X-Riot-Token': apiKey,
-      } as HeadersInit,
-    });
+    const [rotationResponse, championsResponse] = await Promise.all([
+      fetch(URL.CHAMPIONS_ROTATION_DATA, {
+        headers: {
+          'X-Riot-Token': apiKey,
+        } as HeadersInit,
+      }),
+      fetch(`${URL.CHAMPIONS_DATA}.json`, {
+        next: {
+          revalidate: REVALIDATE_TIME_24_HOURS,
+        },
+      }),
+    ]);
 
-    const data: ChampionRotation = await response.json();
+    const { freeChampionIds }: ChampionRotation = await rotationResponse.json();
+    const { data: allChampionData } = await championsResponse.json();
+    const championList: Champion[] = Object.values(allChampionData);
 
-    return Response.json({ freeChampionIds: data.freeChampionIds });
+    const freeChampionList = championList.filter((champion) =>
+      freeChampionIds.includes(Number(champion.key)),
+    );
+
+    return Response.json({ freeChampionList });
   } catch (error) {
     return Response.json(
       {

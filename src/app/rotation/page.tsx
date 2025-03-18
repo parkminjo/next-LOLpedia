@@ -6,23 +6,13 @@ import { Text } from '@/components/ui/Text';
 import { QUERY_KEY } from '@/constants/queryKeys';
 import { useCustomQuery } from '@/hooks/useQuery';
 import { fetchChampionsRotation } from '@/utils/rotationApi';
-import { fetchChampionList } from '@/utils/serverApi';
 
 const Rotation = () => {
   const {
-    data: freeChampionIds,
+    data: freeChampionList,
     isPending,
     isError,
-  } = useCustomQuery(QUERY_KEY.FREE_CHAMPION_IDS, fetchChampionsRotation);
-  const { data: championList } = useCustomQuery(
-    QUERY_KEY.CHAMPION_LIST,
-    fetchChampionList,
-  );
-
-  const freeChampionList =
-    championList?.filter((champion) =>
-      freeChampionIds?.includes(Number(champion.key)),
-    ) || [];
+  } = useCustomQuery(QUERY_KEY.FREE_CHAMPION_LIST, fetchChampionsRotation);
 
   /** UI */
   if (isPending) {
