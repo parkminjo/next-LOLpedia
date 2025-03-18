@@ -5,14 +5,14 @@ import ChampionsLoading from '@/components/ui/ChampionsLoading';
 import { Text } from '@/components/ui/Text';
 import { QUERY_KEY } from '@/constants/queryKeys';
 import { useCustomQuery } from '@/hooks/useQuery';
-import { fetchChampionsRotation } from '@/utils/rotationApi';
+import { fetchFreeChampionList } from '@/utils/rotationApi';
 
 const RotationPage = () => {
   const {
     data: freeChampionList,
     isPending,
     isError,
-  } = useCustomQuery(QUERY_KEY.FREE_CHAMPION_LIST, fetchChampionsRotation);
+  } = useCustomQuery(QUERY_KEY.FREE_CHAMPION_LIST, fetchFreeChampionList);
 
   /** UI */
   if (isPending) {
