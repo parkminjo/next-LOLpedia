@@ -28,14 +28,13 @@ const ChampionDetail = async ({ params }: ParamsProps) => {
   }
 
   return (
-    <div className="relative w-full">
+    <div className="relative h-screen w-screen">
       <Image
         src={`${URL.CHAMPION_IMG}/${championId}_0.jpg`}
-        width={500}
-        height={500}
+        fill
         alt={championData.id}
         priority
-        className="relative h-screen w-screen object-cover"
+        className="object-cover"
       />
       <div className="absolute inset-0 bg-black/50"></div>
       <div className="absolute top-[30%] flex flex-col gap-4 px-8 md:left-20">
