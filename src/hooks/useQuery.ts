@@ -1,5 +1,6 @@
 'use client';
 
+import { STALE_TIME_1H } from '@/constants/number';
 import { useQuery } from '@tanstack/react-query';
 
 /**
@@ -15,5 +16,6 @@ export const useCustomQuery = <T>(
   return useQuery({
     queryKey: [queryKey],
     queryFn,
+    staleTime: STALE_TIME_1H,
   });
 };
