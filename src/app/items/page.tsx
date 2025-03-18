@@ -1,8 +1,6 @@
 import ItemCard from '@/components/features/items/ItemCard';
 import { Text } from '@/components/ui/Text';
 import { fetchItemList } from '@/utils/serverApi';
-import { Suspense } from 'react';
-import Loading from './loading';
 
 const Items = async () => {
   const itemList = await fetchItemList();
@@ -15,13 +13,11 @@ const Items = async () => {
           LOL에서 사용할 수 있는 아이템을 구경해보세요.
         </Text>
       </div>
-      <Suspense fallback={<Loading />}>
-        <div className="grid gap-4 md:grid-cols-4 lg:grid-cols-6">
-          {itemList.map((item) => {
-            return <ItemCard key={item.name} item={item} />;
-          })}
-        </div>
-      </Suspense>
+      <div className="grid gap-4 md:grid-cols-4 lg:grid-cols-6">
+        {itemList.map((item) => {
+          return <ItemCard key={item.name} item={item} />;
+        })}
+      </div>
     </div>
   );
 };
