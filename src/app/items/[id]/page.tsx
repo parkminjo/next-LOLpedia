@@ -4,6 +4,15 @@ import { ParamsProps } from '@/types/props';
 import { fetchItemList } from '@/utils/serverApi';
 import Image from 'next/image';
 
+export const generateMetadata = ({ params }: ParamsProps) => {
+  const itemId = decodeURIComponent(params.id);
+
+  return {
+    title: itemId,
+    description: itemId,
+  };
+};
+
 const ItemDetail = async ({ params }: ParamsProps) => {
   const itemId = decodeURIComponent(params.id);
 
