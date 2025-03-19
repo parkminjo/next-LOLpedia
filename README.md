@@ -72,6 +72,7 @@ Next.js에서 제공하는 4가지 기법의 렌더링을 페이지마다 모두
 
 [Router Handler에서 무료 챔피언 리스트에 대한 로직을 짤 수 있을까?](https://home1204.tistory.com/135)
 
+[fetch 함수는 HTTP error 상태를 반환하지 않는다?!](https://home1204.tistory.com/136)
 
 ---
 
