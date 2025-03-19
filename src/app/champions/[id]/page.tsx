@@ -31,7 +31,7 @@ const ChampionDetail = async ({ params }: ParamsProps) => {
   }
 
   return (
-    <div className="relative h-screen w-screen">
+    <div className="relative h-screen">
       <Image
         src={`${URL.CHAMPION_IMG}/${championId}_0.jpg`}
         fill
