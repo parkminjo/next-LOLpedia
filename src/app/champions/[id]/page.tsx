@@ -2,9 +2,12 @@ import { Text } from '@/components/ui/Text';
 import { URL } from '@/constants/url';
 import { ParamsProps } from '@/types/props';
 import { fetchChampionData } from '@/utils/serverApi';
+import { Metadata } from 'next';
 import Image from 'next/image';
 
-export const generateMetadata = async ({ params }: ParamsProps) => {
+export const generateMetadata = async ({
+  params,
+}: ParamsProps): Promise<Metadata> => {
   const championId = params.id;
   const championData = await fetchChampionData(championId);
 
