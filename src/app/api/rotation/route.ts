@@ -2,6 +2,7 @@ import { REVALIDATE_TIME_24_HOURS } from '@/constants/number';
 import { URL } from '@/constants/url';
 import Champion from '@/types/Champion';
 import ChampionRotation from '@/types/ChampionRotation';
+import { fetchVersion } from '@/utils/serverApi';
 
 export const dynamic = 'force-static';
 
@@ -9,17 +10,22 @@ export async function GET() {
   const apiKey = process.env.NEXT_PUBLIC_RIOT_API_KEY;
 
   try {
+    const version = await fetchVersion();
+
     const [rotationResponse, championsResponse] = await Promise.all([
       fetch(URL.CHAMPIONS_ROTATION_DATA, {
         headers: {
           'X-Riot-Token': apiKey,
         } as HeadersInit,
       }),
-      fetch(`${URL.CHAMPIONS_DATA}.json`, {
-        next: {
-          revalidate: REVALIDATE_TIME_24_HOURS,
+      fetch(
+        `https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion.json`,
+        {
+          next: {
+            revalidate: REVALIDATE_TIME_24_HOURS,
+          },
         },
-      }),
+      ),
     ]);
 
     const { freeChampionIds }: ChampionRotation = await rotationResponse.json();
