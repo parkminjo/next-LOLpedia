@@ -2,6 +2,8 @@ import ItemCard from '@/components/features/items/ItemCard';
 import { Text } from '@/components/ui/Text';
 import { fetchItemList } from '@/utils/serverApi';
 
+export const revalidate = false;
+
 const ItemsPage = async () => {
   const itemList = await fetchItemList();
 
