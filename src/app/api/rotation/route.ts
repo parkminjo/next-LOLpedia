@@ -1,7 +1,6 @@
 import { URL } from '@/constants/url';
-import Champion from '@/types/Champion';
 import ChampionRotation from '@/types/ChampionRotation';
-import { fetchVersion } from '@/utils/serverApi';
+import { fetchChampionList } from '@/utils/serverApi';
 import { NextResponse } from 'next/server';
 
 export const dynamic = 'force-static';
@@ -13,26 +12,17 @@ export async function GET() {
   }
 
   try {
-    const version = await fetchVersion();
-
-    const [rotationResponse, championsResponse] = await Promise.all([
-      fetch(URL.CHAMPIONS_ROTATION_DATA, {
-        headers: {
-          'X-Riot-Token': apiKey,
-        } as HeadersInit,
-      }),
-      fetch(
-        `https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion.json`,
-      ),
-    ]);
-
-    if (!rotationResponse.ok || !championsResponse.ok) {
+    const rotationResponse = await fetch(URL.CHAMPIONS_ROTATION_DATA, {
+      headers: {
+        'X-Riot-Token': apiKey,
+      } as HeadersInit,
+    });
+    if (!rotationResponse.ok) {
       return NextResponse.json({ error: 'RIOT API 호출에 실패하였습니다.' });
     }
-
     const { freeChampionIds }: ChampionRotation = await rotationResponse.json();
-    const { data: allChampionData } = await championsResponse.json();
-    const championList: Champion[] = Object.values(allChampionData);
+
+    const championList = await fetchChampionList();
 
     const freeChampionList = championList.filter((champion) =>
       freeChampionIds.includes(Number(champion.key)),
