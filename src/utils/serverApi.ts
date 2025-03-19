@@ -1,6 +1,5 @@
 'use server';
 
-import { REVALIDATE_TIME_24_HOURS } from '@/constants/number';
 import { URL } from '@/constants/url';
 import Champion from '@/types/Champion';
 import Item from '@/types/Item';
@@ -32,11 +31,6 @@ export const fetchChampionList = async (): Promise<Champion[]> => {
 
     const response = await fetch(
       `https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion.json`,
-      {
-        next: {
-          revalidate: REVALIDATE_TIME_24_HOURS,
-        },
-      },
     );
     const { data } = await response.json();
     const championList: Champion[] = Object.values(data);

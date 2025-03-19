@@ -1,6 +1,9 @@
 import ChampionList from '@/components/features/champions/ChampionList';
 import { Text } from '@/components/ui/Text';
+import { REVALIDATE_TIME_24_HOURS } from '@/constants/number';
 import { fetchChampionList } from '@/utils/serverApi';
+
+export const revalidate = REVALIDATE_TIME_24_HOURS;
 
 const ChampionsPage = async () => {
   const championList = await fetchChampionList();

@@ -1,4 +1,3 @@
-import { REVALIDATE_TIME_24_HOURS } from '@/constants/number';
 import { URL } from '@/constants/url';
 import Champion from '@/types/Champion';
 import ChampionRotation from '@/types/ChampionRotation';
@@ -20,11 +19,6 @@ export async function GET() {
       }),
       fetch(
         `https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion.json`,
-        {
-          next: {
-            revalidate: REVALIDATE_TIME_24_HOURS,
-          },
-        },
       ),
     ]);
 
