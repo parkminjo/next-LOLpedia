@@ -1,7 +1,7 @@
 import { Text } from '@/components/ui/Text';
 import { PATH } from '@/constants/routerPath';
-import { URL } from '@/constants/url';
 import Item from '@/types/Item';
+import { fetchVersion } from '@/utils/serverApi';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -9,7 +9,9 @@ interface ItemCardProps {
   item: Item;
 }
 
-const ItemCard = ({ item }: ItemCardProps) => {
+const ItemCard = async ({ item }: ItemCardProps) => {
+  const version = await fetchVersion();
+
   return (
     <Link href={`${PATH.ITEMS}/${item.name.replace(/(\s*)/g, '')}`}>
       <div className="flex flex-col gap-3 rounded-xl border-2 border-solid p-4">
@@ -17,7 +19,7 @@ const ItemCard = ({ item }: ItemCardProps) => {
           {item.name}
         </Text>
         <Image
-          src={`${URL.ITEMS_IMG}/${item.image.full}`}
+          src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${item.image.full}`}
           width={50}
           height={50}
           alt={item.name}

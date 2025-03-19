@@ -1,7 +1,6 @@
 import { Text } from '@/components/ui/Text';
-import { URL } from '@/constants/url';
 import { ParamsProps } from '@/types/props';
-import { fetchItemList } from '@/utils/serverApi';
+import { fetchItemList, fetchVersion } from '@/utils/serverApi';
 import Image from 'next/image';
 
 export const generateMetadata = ({ params }: ParamsProps) => {
@@ -21,6 +20,8 @@ const ItemDetail = async ({ params }: ParamsProps) => {
     (item) => item.name.replace(/(\s*)/g, '') === itemId,
   );
 
+  const version = await fetchVersion();
+
   return (
     <div className="my-20 flex items-center justify-center">
       <div className="flex min-h-[400px] min-w-[350px] flex-col items-center justify-center gap-10 rounded-xl border-8 border-solid border-gold bg-gray-900 md:min-w-[400px]">
@@ -28,7 +29,7 @@ const ItemDetail = async ({ params }: ParamsProps) => {
           {itemData.name}
         </Text>
         <Image
-          src={`${URL.ITEMS_IMG}/${itemData.image.full}`}
+          src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${itemData.image.full}`}
           width={50}
           height={50}
           alt={itemData.name}

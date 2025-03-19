@@ -6,16 +6,38 @@ import Champion from '@/types/Champion';
 import Item from '@/types/Item';
 
 /**
+ * 버전에 대한 정보를 가져오는 함수
+ * @returns latestVersion - 최신 버전
+ */
+export const fetchVersion = async (): Promise<string | null> => {
+  try {
+    const response = await fetch(URL.VERSION);
+    const versions: string[] = await response.json();
+    const [latestVersion] = versions;
+
+    return latestVersion;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
+
+/**
  * LOL 챔피언 데이터 가져오는 함수
  * @returns Object.values(data) - 챔피언 리스트
  */
 export const fetchChampionList = async (): Promise<Champion[]> => {
   try {
-    const response = await fetch(`${URL.CHAMPIONS_DATA}.json`, {
-      next: {
-        revalidate: REVALIDATE_TIME_24_HOURS,
+    const version = await fetchVersion();
+
+    const response = await fetch(
+      `https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion.json`,
+      {
+        next: {
+          revalidate: REVALIDATE_TIME_24_HOURS,
+        },
       },
-    });
+    );
     const { data } = await response.json();
     const championList: Champion[] = Object.values(data);
 
@@ -34,9 +56,14 @@ export const fetchChampionData = async (
   championId: string,
 ): Promise<Champion | null> => {
   try {
-    const response = await fetch(`${URL.CHAMPIONS_DATA}/${championId}.json`, {
-      cache: 'no-store',
-    });
+    const version = await fetchVersion();
+
+    const response = await fetch(
+      `https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion/${championId}.json`,
+      {
+        cache: 'no-store',
+      },
+    );
     const { data } = await response.json();
     const championData: Champion = data[championId];
 
@@ -53,9 +80,14 @@ export const fetchChampionData = async (
  */
 export const fetchItemList = async (): Promise<Item[]> => {
   try {
-    const response = await fetch(URL.ITEMS_DATA, {
-      cache: 'force-cache',
-    });
+    const version = await fetchVersion();
+
+    const response = await fetch(
+      `https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/item.json`,
+      {
+        cache: 'force-cache',
+      },
+    );
     const { data } = await response.json();
     const itemList: Item[] = Object.values(data);
 
