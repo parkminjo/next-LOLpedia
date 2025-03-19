@@ -1,7 +1,9 @@
 import ChampionList from '@/components/features/champions/ChampionList';
+import ChampionsLoading from '@/components/ui/ChampionsLoading';
 import { Text } from '@/components/ui/Text';
 import { REVALIDATE_TIME_24_HOURS } from '@/constants/number';
 import { fetchChampionList } from '@/utils/serverApi';
+import { Suspense } from 'react';
 
 export const revalidate = REVALIDATE_TIME_24_HOURS;
 
@@ -16,7 +18,9 @@ const ChampionsPage = async () => {
           LOL에서 제공하는 140여 명의 챔피언을 구경해보세요.
         </Text>
       </div>
-      <ChampionList championList={championList} />
+      <Suspense fallback={<ChampionsLoading />}>
+        <ChampionList championList={championList} />
+      </Suspense>
     </div>
   );
 };

@@ -8,6 +8,10 @@ import Champion from '@/types/Champion';
 export const fetchFreeChampionList = async (): Promise<Champion[]> => {
   try {
     const response = await fetch(URL.NEXT_SERVER_ROTATION);
+    if (!response.ok) {
+      throw new Error('무료 챔피언 리스트를 가져오는데 실패하였습니다.');
+    }
+
     const { freeChampionList } = await response.json();
 
     return freeChampionList;

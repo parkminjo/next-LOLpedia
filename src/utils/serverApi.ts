@@ -32,6 +32,10 @@ export const fetchChampionList = async (): Promise<Champion[]> => {
     const response = await fetch(
       `https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion.json`,
     );
+    if (!response.ok) {
+      throw new Error('무료 챔페인 리스트를 가져오는데 실패하였습니다.');
+    }
+
     const { data } = await response.json();
     const championList: Champion[] = Object.values(data);
 

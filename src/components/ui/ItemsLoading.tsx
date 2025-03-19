@@ -1,7 +1,7 @@
 import Skeleton from '@/components/ui/Skeleton';
 import { ARRAY_LENGTH } from '@/constants/number';
 
-const Loading = () => {
+const ItemsLoading = () => {
   return (
     <div className="container mx-auto mt-10 flex flex-col gap-8">
       <div className="grid gap-4 md:grid-cols-4 lg:grid-cols-6">
@@ -21,4 +21,4 @@ const Loading = () => {
   );
 };
 
-export default Loading;
+export default ItemsLoading;
